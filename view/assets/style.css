@@ -1,0 +1,40 @@
+@import url('http://fonts.cdnfonts.com/css/uber-move-text');
+@import url('http://fonts.cdnfonts.com/css/poppins');
+*{
+    margin: 0 !important;
+    font-family: 'Uber Move Text', sans-serif;
+}
+
+.logo{
+    font-size: 42px;
+    letter-spacing: 0px;
+}
+
+.signin-parag{
+    font: normal normal normal 13px/14px Poppins;
+    line-height: 20px !important;
+}
+
+
+
+.btn-green{
+background: #5FB709 0% 0% no-repeat padding-box;
+}
+
+.btn-green:hover{
+    background: #3c7405 0% 0% no-repeat padding-box;
+}
+.text-green{
+    color:#5FB709;
+}
+.signin input, .signin-btn{
+    height: 35px;
+}
+
+.fs-10{
+    font-size: 10px;
+}
+
+.fs-16{
+    font-size: 15px !important;
+}
