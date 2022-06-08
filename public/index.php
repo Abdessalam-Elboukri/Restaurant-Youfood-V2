@@ -20,6 +20,8 @@ $config = [
 $app = new Application(dirname(__DIR__), $config);
 
 
+$app->router->get('/', [new SiteController(), 'home']);
+
 
 
 
