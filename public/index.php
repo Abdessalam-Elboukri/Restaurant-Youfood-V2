@@ -24,6 +24,7 @@ $app->router->get('/', [new SiteController(), 'home']);
 
 $app->router->get('/plats-de-semaine', [new SiteController(), 'PlatsSemaine']);
 
+$app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
 
 
 

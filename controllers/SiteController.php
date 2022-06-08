@@ -17,6 +17,10 @@ class SiteController extends Controller
     {
         return $this->render('plats-de-semaine');
     }
+    public function YourPlats()
+    {
+        return $this->render('vos-plats');
+    }
     
 
     

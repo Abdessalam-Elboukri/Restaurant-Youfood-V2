@@ -201,5 +201,92 @@ nav{
     margin-top: 6px;
 }
 
-
+/* =============================== */
+  /* ====== */
+  .custom_tab_style1.nav-tabs{
+    border-bottom: 2px solid var(--grenn);
+    }
+    .custom_tab_style1 li button{
+        color: var(--black1);
+    }
+    
+    .custom_tab_style1.nav-tabs .nav-link{
+    margin-bottom: -2px;
+    padding:10px 25px;
+    border-width:2px ;
+    }
+    
+    .custom_tab_style1 .nav-item.show .nav-link, .custom_tab_style1 .nav-link.active {
+        color: #495057;
+        background-color: #f8f9fa;
+        border-width:2px ;
+        border-color: var(--grenn) var(--grenn) #f8f9fa;
+    }
+    
+    .custom_tab_style1 .nav-link:focus, .custom_tab_style1 .nav-link:hover {
+        border-width:2px ;
+        border-color: var(--grenn) var(--grenn) #f8f9fa;
+    }
+    
+    
+    /*common styling end*/
+    .member_card_style  {
+    position: relative;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: 0.5s;
+        margin: 20px 0;
+    }
+    
+    .member_card_style img{
+    border-radius: 5px;
+        transition: all .3s;
+    }
+    
+    /* =========VOS PLATS ==========*/
+    .banner{
+        position: relative;
+        overflow: hidden;
+        
+    }
+    .banner::before{
+        position: absolute;
+        top: 15px;
+        left: -25px;
+        width: 135px;
+        height: 20px;
+        transform: rotate(-30deg);
+        background-color: var(--grenn);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--white1);
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.2);
+    }
+    .entrer_banner::before{
+        content: 'Entrer';
+    }
+    .plat_banner::before{
+        content: 'Plat';
+    }
+    .dessert_banner::before{
+        content: 'Dessert';
+    }
+    
+    .plat-date{
+        background: var(--grenn);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 120px;
+        padding: 10px;
+    }
+    input[type=radio]:checked + label{
+        transition: transform 0.2s ease-in-out;
+        box-shadow: 0px 0px 15px 0px var(--grenn) !important;
+        border: 2.5px solid var(--grenn) !important;
+    }
+    
 
