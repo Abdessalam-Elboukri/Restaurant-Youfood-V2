@@ -13,6 +13,10 @@ class SiteController extends Controller
     {
         return $this->render('home');
     }
+    public function PlatsSemaine()
+    {
+        return $this->render('plats-de-semaine');
+    }
     
 
     

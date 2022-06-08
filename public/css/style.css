@@ -178,3 +178,28 @@ nav{
     top: -15px;
     
 }
+/* ============plats de la semaine ============*/
+.bg-banner{
+    height: 110px;
+    background-image: url(../images/banner-bg.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+}
+.line-green{
+    width: 200px;
+    height: 1.5px;
+    background-color: var(--grenn);
+    display: inline;
+}
+.category-p::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--grenn);
+    margin-top: 6px;
+}
+
+
+

@@ -22,6 +22,8 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [new SiteController(), 'home']);
 
+$app->router->get('/plats-de-semaine', [new SiteController(), 'PlatsSemaine']);
+
 
 
 
