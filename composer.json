@@ -1,0 +1,18 @@
+{
+    "name": "abde/php-mvc-base-main",
+    "autoload": {
+        "psr-4": {
+            "app\\":"./"
+        }
+    },
+    "authors": [
+        {
+            "name": "abdessalam-elboukri",
+            "email": "abdessalamelboukri00@gmail.com"
+        }
+    ],
+    "require": {
+        "arrilot/dotenv-php": "^2.0",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
