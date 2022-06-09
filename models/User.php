@@ -10,11 +10,12 @@ class User extends DbModel
     const STATUS_ACTIVE = 1;
     const STATUS_DELETED = 2;
 
-    public string $firstname = '';
-    public string $lastname = '';
+    public string $fname = '';
+    public string $lname = '';
     public string $email =  '';
-    public int $status = self::STATUS_INACTIVE;
     public string $password = '';
+    public string $role = '';
+    public string $picture = '';
     public string $confirmPassword = '';
 
 
@@ -28,6 +29,14 @@ class User extends DbModel
         $this->status = self::STATUS_INACTIVE;
         $this->password = password_hash($this->password, PASSWORD_DEFAULT);
         return parent::save();
+    }
+
+    public function logout(){
+        unset($_SESSION['user_fname']);
+        unset($_SESSION['user_lname']);
+        unset($_SESSION['user_picture']);
+        unset($_SESSION['user_role']);
+        session_destroy();
     }
 
     public function rules(): array
@@ -45,6 +54,6 @@ class User extends DbModel
 
     public function attributes(): array
     {
-        return ['firstname', 'lastname', 'email', 'password', 'status'];
+        return ['fname', 'lname', 'email', 'password', 'role' , 'picture'];
     }
 }

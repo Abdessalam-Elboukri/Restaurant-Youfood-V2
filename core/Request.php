@@ -14,7 +14,7 @@ class Request
             return $path;
         }
 
-        $path = substr($path, 0, $position);
+        return $path = substr($path, 0, $position);
     }
 
     public function method()
