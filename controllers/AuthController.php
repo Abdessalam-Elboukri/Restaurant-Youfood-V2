@@ -31,8 +31,6 @@ class AuthController extends Controller
 
     public function logout()
     {
-        // $user = new ModelLogout();
-        // $user -> logout();
         unset($_SESSION['user_fname']);
         unset($_SESSION['user_lname']);
         unset($_SESSION['user_picture']);
