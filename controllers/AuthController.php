@@ -9,32 +9,30 @@ use app\models\User;
 
 class AuthController extends Controller
 {
-    public function login()
+
+
+    public function managerLogin()
     {
         $this->setLayout('auth');
-        return $this->render('login');
+        return $this->render('manager-login');
     }
 
-    public function register(Request $request)
+
+
+    public function login(Request $request)
     {
-        $user = new User();
-        if($request->isPost())
-        {
-            $user->loadData($request->getBody());
+        $user = new ModelLogin();
 
-            if ($user->validate() && $user->save()){
-                Application::$app->session->sefFlash('success', 'Thanks for registreing');
-                Application::$app->response->redirect('/');
+        if($request->isPost()) {
+            $user -> loadData($request -> getBody());
+            if($user -> validate() && $user -> login()) {
+                Application::$app ->response-> redirect('/');
             }
-
-            return $this->render('register', [
-                'model' => $user
-            ]);
         }
-        $this->setLayout('auth');
 
-        return $this->render('register', [
+        $this->setLayout('auth');
+        return $this->render('login', [
             'model' => $user
-        ]);    
+        ]);
     }
 }

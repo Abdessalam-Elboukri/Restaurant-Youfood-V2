@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('http://fonts.cdnfonts.com/css/uber-move-text');
+@import url('http://fonts.cdnfonts.com/css/poppins');
 
 :root{
     /* --grenn:#7AAA17; */
-    --grenn:#82b542;
+    --grenn:#5FB709;
     --white1: #FAFAFA;
     --black1:#2E2E2E;
     --gray1 : #e5e5e5d0;
 }
 *, *:before, *:after {
     box-sizing: border-box;
+    font-family: 'Uber Move Text', sans-serif;
 }
 ::-webkit-scrollbar{
     width: 0.5rem;
@@ -21,6 +24,40 @@
     background-color:#81b54264 ;
 }
 /* shorthand */
+
+/* ------------------background--------------- */
+.bg-green-1{
+    background: var(--grenn) 0% 0% no-repeat padding-box;
+}
+.bg-green-2{
+    background: #5FB7092E 0% 0% no-repeat padding-box;
+}
+.bg-gris-1{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+}
+
+.bg-muted{
+    background-color: var(--gray1);
+}
+
+.bg-green{
+    background-color: var(--grenn);
+}
+/* ---------------------end Background--------------------------- */
+/*-------------------------TEXT-------------------------- */
+
+.text-green{
+    color:var(--grenn);
+}
+
+.text-gris{
+    color: #9C9C9C;
+}
+
+.text-red{
+    color: #F26868;
+}
+
 .font_dancing{
     font-family: 'Dancing Script', cursive;
 }
@@ -30,18 +67,12 @@
 .xxsmall-text{
     font-size: 8px;
 }
-.bg-muted{
-    background-color: var(--gray1);
-}
+
 .text-meduim{
     font-size:18px;
 }
-.text-green{
-    color: var(--grenn);
-}
-.bg-green{
-    background-color: var(--grenn);
-}
+
+
 .fs-7rem{
     font-size: 7rem;
 }
@@ -51,9 +82,70 @@
 .fs-3rem{
     font-size: 3rem;
 }
+.fs-10{
+    font-size: 10px;
+}
+
+.fs-11{
+    font-size: 11px;
+}
+
+.fs-12{
+    font: normal normal 300 14px/20px Poppins;
+}
+.fs-13{
+    font: normal normal normal 13px/15px Uber Move Text;
+}
+
+.fs-14{
+    font-size: 14px;
+}
+
+.fs-16-normal{
+    font: normal normal normal 16px/19px Uber Move Text;
+}
+
+.fs-16{
+    font-size: 15px !important;
+}
+
+.fs-21{
+    font: normal normal bold 19px/20px Uber Move Text;
+}
 .mt-nav{
     margin-top: 61px;
 }
+
+/* ---------------------btn--------------------------- */
+
+.btn-green{
+    background: var(--grenn) 0% 0% no-repeat padding-box;
+}
+
+.btn-green:hover{
+    background: #3c7405 0% 0% no-repeat padding-box;
+}
+
+.btn_green_price {
+    background: #86D07B17 0% 0% no-repeat ;
+    border: 0.5px solid var(--grenn);
+    border-radius: 5px;
+}
+
+.button{
+    border: none;
+    background-color: var(--grenn);
+    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.3);
+    padding: 10px 28px;
+}
+.btn_hover                {
+    transition: all 0.3s ease-in-out;
+}
+.btn_hover:hover{
+    box-shadow: 0px 0px 15px 0px var(--grenn);
+}
+
+/* ------------------------end_Btn---------------------- */
 /* ===========js classes========= */
 .border-checked{
     border: 2px solid var(--grenn);
@@ -67,7 +159,7 @@ body{
 
 a{
     text-decoration: none;
-    color: var(--black1)!important;
+    color: var(--black1);
 }
 label{
     font-size: 0.9rem;
@@ -77,20 +169,9 @@ input::placeholder{
 }
 
 /* ======================== */
-button, .button{
-    border: none;
-    background-color: var(--grenn);
-    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.3);
-    padding: 10px 28px;
-}
-.btn_hover                {
-    transition: all 0.3s ease-in-out;
-}
-.btn_hover:hover{
-    box-shadow: 0px 0px 15px 0px var(--grenn);
-}
+
 /* navbar */
-nav{
+.nav_user{
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
     position: fixed;
     top: 0;
@@ -288,5 +369,68 @@ nav{
         box-shadow: 0px 0px 15px 0px var(--grenn) !important;
         border: 2.5px solid var(--grenn) !important;
     }
-    
+
+
+*{
+    font-family: 'Uber Move Text', sans-serif;
+    box-sizing: border-box !important;
+}
+/* --------------------SIGNIN RESTAURANT-------------------- */
+.logo{
+    font-size: 42px;
+    letter-spacing: 0px;
+}
+
+.mini-logo{
+    font-size: 21px;
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.signin-parag{
+    font: normal normal normal 13px/14px Poppins;
+    line-height: 20px !important;
+}
+
+.signin input, .signin-btn{
+    height: 35px;
+}
+
+/* ---------------END SIGNIN----------------- */
+
+/* -----------------------------PRINCIPAL LAYOUT---------------------------- */
+
+.dropdown-item:hover{
+    background-color: #fafafa !important;
+    color: rgb(63, 63, 63) !important;
+}
+
+.nav_item:hover{
+    color: var(--grenn) !important;
+}
+
+.mini-navBar{
+    height: 40px;
+    z-index: 1;
+
+}
+
+.real-main{
+    margin-top: 42px;
+}
+
+/* --------------------------------END PRICINPALE LAYOUT------------------------------ */
+
+/* -----------------------------------Dashboard Restaurant----------------------------------------- */
+
+.card_Order{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    /* height: 353px; */
+}
+
+.card{
+    border-radius: 15px;
+}
+
 
