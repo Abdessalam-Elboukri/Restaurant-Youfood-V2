@@ -6,19 +6,11 @@ use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\models\User;
+use app\models\ModelLogin;
+
 
 class AuthController extends Controller
 {
-
-
-    public function managerLogin()
-    {
-        $this->setLayout('auth');
-        return $this->render('manager-login');
-    }
-
-
-
     public function login(Request $request)
     {
         $user = new ModelLogin();
@@ -35,4 +27,17 @@ class AuthController extends Controller
             'model' => $user
         ]);
     }
+
+    public function logout()
+    {
+        unset($_SESSION['user_fname']);
+        unset($_SESSION['user_lname']);
+        unset($_SESSION['user_picture']);
+        unset($_SESSION['user_role']);
+        session_destroy();
+        var_dump($_SESSION['user_fname']);
+        Application::$app->response->redirect('/');
+    }
+
+
 }

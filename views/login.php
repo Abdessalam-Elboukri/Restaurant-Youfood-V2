@@ -23,22 +23,19 @@
                 <div class="r-side p-md-4 p-2 bg-light">
                     <!-- <img src="images/leaf2.png" alt="" class="leaf"> -->
                     <div class="text-center mb-4">
-                        <h2 class="text-green">Login</h2>
+                        <h2 class="text-green fw-600">Login</h2>
                         <p class="text-muted mt-2">It is a long established fact that a reader will be </p>
                     </div>
                     
-                    <form action="">
+                    <?php $form = app\core\form\Form::begin('', "post",'multipart/form-data'); ?>
                         <div class="form-group mb-4 login">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control p-2" id="" aria-describedby="emailHelp" placeholder="Entrer votre email">
+                            <?php echo $form->field($model, 'email'); ?>
                         </div>
                         <div class="form-group mb-2 login">
-                            <label for="">Password</label>
-                            <input type="password" class="form-control p-2" id="" placeholder="Entrer votre Password">
+                            <?php echo $form->field($model, 'password'); ?>
                             <div class="text-end">
                                 <a href="" class="text-muted small-text text-end">Forgot Password?</a>
                             </div>
-                            
                         </div>
                         <div class="form-group form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -51,7 +48,7 @@
                             <button class=" w-100" style="background-color: rgb(46, 144, 241) ;"><i class="fa-brands fa-google fs-4 text-white" ><h6 class="d-inline ms-3">Google</h6></i></button>
                         </div>
                         
-                    </form>
+                    <?php app\core\form\Form::end(); ?>
                 </div>
             </div>
 

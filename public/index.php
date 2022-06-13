@@ -34,8 +34,12 @@ $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardRe
 $app->router->get('/manager-login', [AuthController::class, 'manager-login']);
 $app->router->post('/manager-login', [AuthController::class, 'manager-login']);
 
+
 $app->router->get('/login', [AuthController::class, 'login']);
 $app->router->post('/login', [AuthController::class, 'login']);
+
+// $app->router->get('/logout', [AuthController::class, 'logout']);
+$app->router->get('/logout', [AuthController::class, 'logout']);
 
 
 
