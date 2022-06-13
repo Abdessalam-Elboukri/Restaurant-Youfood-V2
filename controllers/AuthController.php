@@ -7,7 +7,6 @@ use app\core\Controller;
 use app\core\Request;
 use app\models\User;
 use app\models\ModelLogin;
-use app\models\ModelLogout;
 
 
 class AuthController extends Controller
@@ -40,26 +39,5 @@ class AuthController extends Controller
         Application::$app->response->redirect('/');
     }
 
-    public function register(Request $request)
-    {
-        $user = new User();
-        if($request->isPost())
-        {
-            $user->loadData($request->getBody());
 
-            if ($user->validate() && $user->save()){
-                Application::$app->session->sefFlash('success', 'Thanks for registreing');
-                Application::$app->response->redirect('/');
-            }
-
-            return $this->render('register', [
-                'model' => $user
-            ]);
-        }
-        $this->setLayout('auth');
-
-        return $this->render('register', [
-            'model' => $user
-        ]);    
-    }
 }
