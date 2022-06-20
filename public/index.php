@@ -30,6 +30,8 @@ $app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
 /******************************Restaurant Pages**********************************/
 
 $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
+$app->router->get('/Restaurant-add_plats', [RestoController::class, 'AddPlats']);
+
 
 $app->router->get('/manager-login', [AuthController::class, 'manager-login']);
 $app->router->post('/manager-login', [AuthController::class, 'manager-login']);
