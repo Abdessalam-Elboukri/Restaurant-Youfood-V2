@@ -12,4 +12,27 @@ class RestoController extends Controller{
          $this->setLayout('main_resto');
          return $this->render('Dashboard');
      }
+
+     public function AddPlats(){
+         $this->setLayout('main_resto');
+         return $this->render('add_plat');
+     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
