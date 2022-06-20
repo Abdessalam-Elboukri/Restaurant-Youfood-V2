@@ -5,6 +5,8 @@ use app\core\Application;
 use app\controllers\SiteController;
 use app\controllers\MenuController;
 
+use app\controllers\TestController;
+use app\controllers\RestoController;
 
 require_once __DIR__.'/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
@@ -26,10 +28,15 @@ $app->router->get('/', [new SiteController(), 'home']);
 
 $app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
 
+/******************************Restaurant Pages**********************************/
 
 $app->router->get('/plats-menu', [MenuController::class, 'MenuList']);
 $app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
 
+$app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
+
+$app->router->get('/manager-login', [AuthController::class, 'manager-login']);
+$app->router->post('/manager-login', [AuthController::class, 'manager-login']);
 
 
 $app->router->get('/login', [AuthController::class, 'login']);

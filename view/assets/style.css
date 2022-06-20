@@ -1,0 +1,152 @@
+@import url('http://fonts.cdnfonts.com/css/uber-move-text');
+@import url('http://fonts.cdnfonts.com/css/poppins');
+*{
+    font-family: 'Uber Move Text', sans-serif;
+    box-sizing: border-box !important;
+}
+/* --------------------SIGNIN RESTAURANT-------------------- */
+.logo{
+    font-size: 42px;
+    letter-spacing: 0px;
+}
+
+.mini-logo{
+    font-size: 21px;
+    letter-spacing: 0px;
+    font-weight: 600;
+}
+
+.signin-parag{
+    font: normal normal normal 13px/14px Poppins;
+    line-height: 20px !important;
+}
+
+.signin input, .signin-btn{
+    height: 35px;
+}
+
+/* ---------------END SIGNIN----------------- */
+
+/* --------------------------Component------------------------- */
+        /* ------------------background--------------- */
+            .bg-green-1{
+                background: #5FB709 0% 0% no-repeat padding-box;
+            }
+            .bg-green-2{
+                background: #5FB7092E 0% 0% no-repeat padding-box;
+            }
+            .bg-gris-1{
+                background: #F7F7F7 0% 0% no-repeat padding-box;
+            }
+        /* ---------------------end Background--------------------------- */
+        /* ---------------------btn--------------------------- */
+
+.btn-green{
+background: #5FB709 0% 0% no-repeat padding-box;
+}
+
+.btn-green:hover{
+    background: #3c7405 0% 0% no-repeat padding-box;
+}
+
+.btn_green_price {
+    background: #86D07B17 0% 0% no-repeat ;
+    border: 0.5px solid #5FB709;
+    border-radius: 5px;
+}
+
+        /* ------------------------end_Btn---------------------- */
+
+        /*-------------------------TEXT-------------------------- */
+
+.text-green{
+    color:#5FB709;
+}
+
+.text-gris{
+    color: #9C9C9C;
+}
+
+.text-red{
+    color: #F26868;
+}
+
+
+.fs-10{
+    font-size: 10px;
+}
+
+.fs-12{
+    font: normal normal 300 14px/20px Poppins;
+}
+
+.fs-11{
+    font-size: 11px;
+}
+
+.fs-13{
+    font: normal normal normal 13px/15px Uber Move Text;
+}
+
+.fs-14{
+    font-size: 14px;
+}
+
+
+.fs-16-normal{
+    font: normal normal normal 16px/19px Uber Move Text;
+}
+
+.fs-16{
+    font-size: 15px !important;
+}
+
+.fs-21{
+    font: normal normal bold 19px/20px Uber Move Text;
+}
+
+
+
+/* -----------------------------PRINCIPAL LAYOUT---------------------------- */
+
+.dropdown-item:hover{
+    background-color: #fafafa !important;
+    color: rgb(63, 63, 63) !important;
+}
+
+.nav_item:hover{
+    color: #5FB709 !important;
+}
+
+.mini-navBar{
+    height: 40px;
+    z-index: 1;
+
+}
+
+.real-main{
+    margin-top: 42px;
+}
+
+/* --------------------------------END PRICINPALE LAYOUT------------------------------ */
+
+/* -----------------------------------Dashboard----------------------------------------- */
+
+.card_Order{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    border-radius: 15px;
+    /* height: 353px; */
+}
+
+.card{
+    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+ 
