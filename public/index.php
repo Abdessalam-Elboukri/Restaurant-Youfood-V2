@@ -3,7 +3,8 @@
 use app\controllers\AuthController;
 use app\core\Application;
 use app\controllers\SiteController;
-use app\controllers\TestController;
+use app\controllers\MenuController;
+
 
 require_once __DIR__.'/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
@@ -22,10 +23,12 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [new SiteController(), 'home']);
 
-$app->router->get('/plats-de-semaine', [new SiteController(), 'PlatsSemaine']);
 
 $app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
 
+
+$app->router->get('/plats-menu', [MenuController::class, 'MenuList']);
+$app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
 
 
 

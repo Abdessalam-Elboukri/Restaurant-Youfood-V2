@@ -7,7 +7,6 @@ use app\core\Controller;
 use app\core\Request;
 use app\models\User;
 use app\models\ModelLogin;
-use app\models\ModelLogout;
 
 
 class AuthController extends Controller

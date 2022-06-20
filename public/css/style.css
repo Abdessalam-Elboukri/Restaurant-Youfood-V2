@@ -21,9 +21,9 @@ input[type=checkbox]:checked{
     background-color: var(--grenn) !important;
     border: var(--grenn);
 }
-label{
+/* label{
     text-transform:capitalize;
-}
+} */
 .bg-smoth-green{
     background-color:#81b54264 ;
 }
