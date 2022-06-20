@@ -3,6 +3,8 @@
 use app\controllers\AuthController;
 use app\core\Application;
 use app\controllers\SiteController;
+use app\controllers\MenuController;
+
 use app\controllers\TestController;
 use app\controllers\RestoController;
 
@@ -23,11 +25,13 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [new SiteController(), 'home']);
 
-$app->router->get('/plats-de-semaine', [new SiteController(), 'PlatsSemaine']);
 
 $app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
 
 /******************************Restaurant Pages**********************************/
+
+$app->router->get('/plats-menu', [MenuController::class, 'MenuList']);
+$app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
 
 $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
 

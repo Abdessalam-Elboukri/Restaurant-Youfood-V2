@@ -13,16 +13,18 @@ abstract class Model
 
     public function loadData($data)
     {
-        foreach($data as $key => $value) {
-            if(property_exists($this, $key)) {
-                $this->{$key} = $value;
+        if(is_array($data)){
+            foreach($data as $key => $value) {
+                if(property_exists($this, $key)) {
+                    $this->{$key} = $value;
+                }
             }
         }
     }
 
     abstract public function rules(): array;
 
-    public array $errors = [];
+    // public array $errors = [];
 
     public function validate()
     {

@@ -2,6 +2,8 @@
 
 namespace app\core;
 use app\models\User;
+use app\models\PlatsModel;
+
 use PDO;
 
 abstract class DbModel extends Model
@@ -61,7 +63,7 @@ abstract class DbModel extends Model
         }
         $statement = self::prepare("SELECT $attr FROM $tableName");
         $statement->execute();
-        $this->dataList =  $statement->fetchAll();
+        $this->dataList =  $statement->fetchAll(PDO::FETCH_OBJ);
         return true;
     }
 
@@ -72,6 +74,19 @@ abstract class DbModel extends Model
         $statement->execute();
         $this->dataList = $statement->fetch(PDO::FETCH_OBJ);
         return true;
+    }
+
+
+    public function GetMenu(String $col,String $value){
+
+        $tableName = $this->tableName();
+        $statement = self::prepare("SELECT * FROM $tableName  WHERE $col =  ?");
+        $statement ->bindParam(1, $value, PDO::PARAM_STR);
+        $statement->execute();
+        $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return true;
+
+
     }
 
     public function delete(int $id)
@@ -100,4 +115,11 @@ abstract class DbModel extends Model
         $statement->execute();
         return $statement->fetch();
     }
+
+    // public function setProperties(array $properties)
+    // {
+    //     foreach ($properties as $key => $value) {
+    //         $this->{$key} = $value;
+    //     }
+    // }
 }

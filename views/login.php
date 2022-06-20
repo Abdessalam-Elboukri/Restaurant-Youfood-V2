@@ -1,5 +1,5 @@
     <main class="back-login vh-100 d-flex align-items-center p-2 p-sm-0  ">
-        <div class="login-container container-fluid col-md-10 col-sm-11 col-12 shadow rounded mt-5 mt-md-0 mb-5 mb-md-0 ">
+        <div class="login-container container-fluid col-md-9 col-sm-11 col-12 shadow rounded mt-5 mt-md-0 mb-5 mb-md-0 ">
             <div class="row flex-column-reverse flex-md-row">
                 <div class="l-side bg-light d-flex  flex-column justify-content-center align-items-center ">
                     <div class="text-start p-2">
@@ -27,7 +27,7 @@
                         <p class="text-muted mt-2">It is a long established fact that a reader will be </p>
                     </div>
                     
-                    <?php $form = app\core\form\Form::begin('', "post",'multipart/form-data'); ?>
+                    <?php $form = app\core\form\Form::begin('', "post"); ?>
                         <div class="form-group mb-4 login">
                             <?php echo $form->field($model, 'email'); ?>
                         </div>
@@ -42,11 +42,11 @@
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
                         <button type="submit" class="w-100 text-white fw-bold">Login</button>
-                        <div class="text-center text-muted"><p class="mt-2">Or</p></div>
+                        <!-- <div class="text-center text-muted"><p class="mt-2">Or</p></div>
                         
                         <div class="mt-1 mb-2 d-flex align-items-center">
                             <button class=" w-100" style="background-color: rgb(46, 144, 241) ;"><i class="fa-brands fa-google fs-4 text-white" ><h6 class="d-inline ms-3">Google</h6></i></button>
-                        </div>
+                        </div> -->
                         
                     <?php app\core\form\Form::end(); ?>
                 </div>
