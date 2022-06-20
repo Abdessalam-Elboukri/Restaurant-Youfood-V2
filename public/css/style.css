@@ -440,4 +440,16 @@ input::placeholder{
     border-radius: 15px;
 }
 
+/* -----------------------------------End Dashboard Restaurant----------------------------------------- */
+/* -----------------------------------Add plat Restaurant----------------------------------------- */
+.table_plat {
+    border-collapse:separate;
+    border-spacing: 0 15px;
+}
 
+/* td{*/
+/*    background-color: #F9FAFC !important;*/
+/*}*/
+.plat tr:nth-child(even) , .th_plat{
+    background-color: #F9FAFC !important;
+}
