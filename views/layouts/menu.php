@@ -19,24 +19,24 @@
     <!-- navbar -->
     <?php
     if (isset($_SESSION['user_fname'])) {
-        ?>
-        <nav class="navbar navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky" >
+    ?>
+        <nav class="navbar navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky">
             <div class="container-fluid me-lg-3">
                 <a class="navbar-brand logo fw-bold active" href="">You<span class="text-green">Food</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex  align-items-center gap-3">
                         <a class="nav-link " href="plats-menu">Plats de Semaine</a>
                         <a class="nav-link" href="vos-plats">Vos Plats </a>
                         <a class="nav-link" href="#">Contact Nous</a>
-                        <a class="nav-link" href="#">A propos</a>                   
+                        <a class="nav-link" href="#">A propos</a>
                         <div class="nav-item dropdown ms-lg-4">
                             <a class="small-text" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="circle-ntf"></span>
-                            <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative" width="40px">
-                               <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  var_dump($_SESSION['user_role'])?>
+                                <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative" width="40px">
+                                <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? ''; ?>
                             </a>
                             <ul class="dropdown-menu shadow down-menu bg-light border-0 pb-0" aria-labelledby="navbarDropdownMenuLink" style="min-width:3rem">
                                 <li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -47,26 +47,43 @@
                 </div>
             </div>
         </nav>
-    <?php }
-    else{
-        ?>
+    <?php } else {
+    ?>
         <nav class="navbar navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky">
-        <div class="container-fluid me-lg-3">
-            <a class="navbar-brand logo fw-bold active" href="">You<span class="text-green">Food</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavAltMarkup">
-                <div class="d-flex justify-content-end align-items-center">
-                    <a href="login" class="text-dark nav-link fw-bold">Login<i class="fa-solid fa-arrow-right-to-bracket ms-1 align-middle"></i></a>
+            <div class="container-fluid me-lg-3">
+                <a class="navbar-brand logo fw-bold active" href="">You<span class="text-green">Food</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavAltMarkup">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a href="login" class="text-dark nav-link fw-bold">Login<i class="fa-solid fa-arrow-right-to-bracket ms-1 align-middle"></i></a>
+                    </div>
                 </div>
             </div>
+            </div>
+        </nav><?php } ?>
+    <main class="plat-semaine-content">
+        <div class="bg-banner d-flex justify-content-center align-items-center z-index-2">
+            <h1 class="text-green fw-bold font_dancing">Plats de Semaine</h1>
         </div>
-    </div>
-</nav><?php }?>
 
-    <!-- end navbar -->
-    {{content}}
+        <div class="container-fluid p-0 m-0">
+            <div class="d-flex flex-nowrap">
+                <!-- =============== -->
+                <div class="container-fluid p-0 m-0 content mr-content">
+                    {{content}}
+                </div>
+                <footer class="bg-black text-white p-3 d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="small-text m-0">
+                        © 2022 YouFood Technologies Inc.
+                    </p>
+                    <div>
+                        <a href="" class="text-white small-text btn p-0 border-0 ">Politique de confidentialité</a>
+                        <a href="" class="text-white small-text btn p-0 border-0"> | Conditions d'utilisation</a>
+                    </div>
+                </footer>
+    </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
@@ -75,6 +92,3 @@
 </body>
 
 </html>
-
-
-

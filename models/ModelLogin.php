@@ -39,10 +39,11 @@ class ModelLogin extends Model
                 $this->addErrorLogin('password', 'Wrong password');
                 return false;
                 }
-                $_SESSION['user_fname'] = $user_login->fname;
-                $_SESSION['user_lname'] = $user_login->lname;
+                $_SESSION['user_id'] = $user_login->id_user;
+                $_SESSION['user_fname'] = $user_login->firstname;
+                $_SESSION['user_lname'] = $user_login->lastname;
                 $_SESSION['user_picture'] = $user_login->picture;
-                $_SESSION['user_role'] = $user_login->role;
+                $_SESSION['user_role'] = $user_login->fk_role;
              return true;
             }
 
