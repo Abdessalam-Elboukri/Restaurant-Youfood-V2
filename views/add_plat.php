@@ -34,8 +34,8 @@
                 <td class=""><?= $plat->nom_plat?></td>
                     <td class=""><?= $plat->desc_plat?></td>
                     <td class=""><?= $plat->cat_plat ?></td>
-                    <td class=""><a href=""><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href=""><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
+                    <td class=""><a href="Restaurant-add_plats/update?id=<?= $plat->id_plat ?>"><i class="fa-solid fa-pen text-gris"></i></a></td>
+                    <td class=""><a href="Restaurant-add_plats/delete?id=<?= $plat->id_plat ?>"><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
                 </tr>
                <?php endforeach ?>
 

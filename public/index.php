@@ -36,6 +36,7 @@ $app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
 
 $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
 $app->router->get('/Restaurant-add_plats', [PlatController::class, 'SellectAllPlat']);
+$app->router->get('/Restaurant-add_plats/delete', [PlatController::class, 'deletePlat']);
 $app->router->post('/Restaurant-add_plats', [PlatController::class, 'addPlat']);
 
 
