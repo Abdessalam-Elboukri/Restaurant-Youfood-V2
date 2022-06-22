@@ -7,7 +7,7 @@
                 <p class="text-meduim">The best food is that which is made from the heart .</p>
             </div>
             <div class="text-center mt-5">
-                <button class="btn_hover"><a href="" class="text-white btn_hover">Reserve Now</a></button>
+                <span class="btn_hover"><a href="" class=" button text-white btn_hover">Reserve Now</a></span>
             </div>
         </div>
         <div class="right-side d-flex justify-content-center align-items-end justify-content-lg-end">

@@ -41,7 +41,7 @@
                             <input type="checkbox" class="form-check-input" id="exampleCheck1">
                             <label class="form-check-label" for="exampleCheck1">Check me out</label>
                         </div>
-                        <button type="submit" class="w-100 text-white fw-bold">Login</button>
+                        <input type="submit" class="w-100 button text-white fw-bold" value="Login">
                         <!-- <div class="text-center text-muted"><p class="mt-2">Or</p></div>
                         
                         <div class="mt-1 mb-2 d-flex align-items-center">

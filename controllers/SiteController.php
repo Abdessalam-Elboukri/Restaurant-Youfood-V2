@@ -21,6 +21,10 @@ class SiteController extends Controller
     {
         return $this->render('vos-plats');
     }
+    public function OrderPlat()
+    {
+        return $this->render('plats-menu');
+    }
     
 
     

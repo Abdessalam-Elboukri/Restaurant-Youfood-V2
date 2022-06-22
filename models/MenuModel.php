@@ -45,16 +45,8 @@ class MenuModel extends DbModel
     
   public function GetMenu(String $col, String $value ){
     return parent::GetMenu($col, $value );
+
   }
-
-
-    public function save()
-    {
-        return parent::save();
-    }
-
-
-
 
 
     

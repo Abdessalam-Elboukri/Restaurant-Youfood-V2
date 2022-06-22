@@ -4,8 +4,7 @@ use app\controllers\AuthController;
 use app\core\Application;
 use app\controllers\SiteController;
 use app\controllers\MenuController;
-
-use app\controllers\TestController;
+use app\controllers\OrdersController;
 use app\controllers\RestoController;
 use app\controllers\PlatController;
 
@@ -26,13 +25,16 @@ $app = new Application(dirname(__DIR__), $config);
 
 $app->router->get('/', [new SiteController(), 'home']);
 
-
 $app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
+$app->router->post('/vos-plats', [OrdersController::class, 'getCommands']);
+
+$app->router->get('/plats-menu', [OrdersController::class, 'OrderPlat']);
+$app->router->post('/plats-menu', [OrdersController::class, 'OrderPlat']);
 
 /******************************Restaurant Pages**********************************/
 
-$app->router->get('/plats-menu', [MenuController::class, 'MenuList']);
-$app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
+$app->router->get('/search-menu', [MenuController::class, 'MenuList']);
+$app->router->post('/search-menu', [MenuController::class, 'MenuList']);
 
 $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
 $app->router->get('/Restaurant-add_plats', [PlatController::class, 'SellectAllPlat']);
