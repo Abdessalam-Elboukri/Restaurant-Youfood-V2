@@ -7,6 +7,12 @@ use app\core\Controller;
 use app\core\Request;
 use app\models\MenuModel;
 use app\models\OrderedplatModel;
+use app\models\PlatsModel;
+
+// class PlatController extends Controller
+// {
+    
+// }
 
 class MenuController extends Controller
 {

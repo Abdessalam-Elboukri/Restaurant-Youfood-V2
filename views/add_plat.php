@@ -26,49 +26,18 @@
                 </thead>
 
                 <tbody>
-
+                
+                <?php  foreach($plats as $plat):?>
+                <?php ?>
                 <tr class="bg-white align-middle">
                     <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href=""><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href=""><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
+                <td class=""><?= $plat->nom_plat?></td>
+                    <td class=""><?= $plat->desc_plat?></td>
+                    <td class=""><?= $plat->cat_plat ?></td>
+                    <td class=""><a href="Restaurant-add_plats/update?id=<?= $plat->id_plat ?>"><i class="fa-solid fa-pen text-gris"></i></a></td>
+                    <td class=""><a href="Restaurant-add_plats/delete?id=<?= $plat->id_plat ?>"><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
                 </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-
-
-                    <tr class="bg-white align-middle">
-                        <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                        <td class="">Poulet Mariné</td>
-                        <td class="">Poulet grillé au sauce blanche</td>
-                        <td class="">Plat principal</td>
-                        <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                        <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                    </tr>
+               <?php endforeach ?>
 
                 </tbody>
             </table>
@@ -83,23 +52,23 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="post">
                         <div class="mb-3">
                             <label for="plat-image" class="col-form-label">Image du plat</label>
-                            <input type="file" class="form-control" id="plat-image">
+                            <input type="file" class="form-control" name="img_plat" id="plat-image">
                         </div>
                         <div class="mb-3">
                             <label for="plat-name" class="col-form-label">Nom du plat</label>
-                            <input type="text" class="form-control" id="plat-name">
+                            <input type="text" class="form-control" name="nom_plat" id="plat-name">
                         </div>
                         <div class="mb-3">
                             <label for="plat-description" class="col-form-label">Description du plat</label>
-                            <textarea class="form-control" id="plat-description"></textarea>
+                            <textarea class="form-control" name="desc_plat" id="plat-description"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="plat-categorie" class="col-form-label">Categorie</label>
-                            <select class="form-control" id="plat-categorie">
-                                <option hidden>Selectioner une categorie</option>
+                            <select class="form-control" name="cat_plat" id="plat-categorie" require>
+                                <option disabled >Selectioner une categorie</option>
                                 <option>Entree</option>
                                 <option>Plat principal</option>
                                 <option>Dessert</option>
@@ -107,7 +76,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary rounded-pill px-3" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-green fw-bold text-white rounded-pill px-3">Ajouter</button>
+                            <button type="submit" class="btn btn-green fw-bold text-white rounded-pill px-3">Ajouter</button>
                         </div>
                     </form>
                 </div>

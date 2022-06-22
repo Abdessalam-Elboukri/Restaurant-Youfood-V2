@@ -26,15 +26,17 @@ class PlatsModel extends DbModel
     public function rules(): array
     {
         return [
-            'entrer' => [self::RULE_REQUIRED],
-            'principale' => [self::RULE_REQUIRED],
-            'dessert' => [self::RULE_REQUIRED],
+            'id_plat' => [self::RULE_REQUIRED],
+            'nom_plat' => [self::RULE_REQUIRED],
+            'desc_plat' => [self::RULE_REQUIRED],
+            'img_plat' => [self::RULE_REQUIRED],
+            'cat_plat' =>[self::RULE_REQUIRED]
         ];
     }
 
     public function attributes(): array
     {
-        return ['entrer', 'principale', 'dessert'];
+        return ['id_plat','nom_plat', 'desc_plat', 'img_plat','cat_plat'];
     }
 
 
@@ -51,9 +53,10 @@ class PlatsModel extends DbModel
         return parent::save();
     }
 
-
-
-
-
+    
+    public  function delete(int $id,String $col)
+    {
+        return parent::delete($id,$col);
+    }
     
 }
