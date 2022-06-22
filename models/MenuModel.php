@@ -47,8 +47,8 @@ class MenuModel extends DbModel
 
 
     
-  public function GetMenu(String $col, String $value,$attributes=[] ){
-    return parent::GetMenu($col, $value,$attributes=[]);
+  public function Get(String $col, String $value,$attributes=[] ){
+    return parent::Get($col, $value,$attributes);
 
   }
   

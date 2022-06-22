@@ -23,7 +23,6 @@ class PlatController extends Controller
         if($request->isPost())
         {
             $plat->loadData($request->getBody());
-            // var_dump()
             if($plat->save()){
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
@@ -36,8 +35,6 @@ class PlatController extends Controller
     {
         $plat = new PlatsModel();
             if($plat->selectAll()){
-
-                // $plat->loadData($plat->dataList);
                 $params=[
                     'plats' => $plat->dataList
                 ];
@@ -53,10 +50,10 @@ class PlatController extends Controller
         $id = $_GET['id'] ;
         $col= 'id_plat';
         $plat = new PlatsModel();
-
             if($request->isGet())
             {
-                if($plat->delete($id, $col)){
+                if($plat->delete($id, $col))
+                {
                 Application::$app->response->redirect('/Restaurant-add_plats');  
                 }
             }
@@ -97,6 +94,30 @@ class PlatController extends Controller
 
            
     }
+
+    public function selectPlat(Request $request)
+        {
+            $id='Entree';
+            $col='cat_plat';
+            $plat = new PlatsModel();
+            if($request->isGet()){
+                
+                if($plat->Get($col, $id,['nom_plat'])){
+                    //  echo '<pre>';
+                    // var_dump($plat);
+                    // echo '<pre>';
+                    // exit;
+                    $this->setLayout('main_resto');
+                    return $this->render('add_menu',
+                    [
+                        'plats' => $plat->dataList
+                    ]);
+            }
+            }
+    
+        }
+        
+
 
    
 }

@@ -64,9 +64,14 @@ class PlatsModel extends DbModel
         return parent::updatePlat($id, $col);
     }
 
-    public function select(int $id, string $col)
+    public function select( $id, string $col)
     {
         return parent::select($id, $col);
+    }
+
+    public function Get(string $col, string $value, $attributes=[])
+    {
+        return parent::Get($col, $value, $attributes);
     }
     
 }
