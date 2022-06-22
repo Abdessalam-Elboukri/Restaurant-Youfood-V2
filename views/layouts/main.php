@@ -20,9 +20,9 @@
     <?php
     if (isset($_SESSION['user_fname'])) {
         ?>
-        <nav class="navbar navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky" >
+        <nav class="navbar nav_user navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky" >
             <div class="container-fluid me-lg-3">
-                <a class="navbar-brand logo fw-bold active" href="">You<span class="text-green">Food</span></a>
+                <a class="navbar-brand logo1 fw-bold active" href="">You<span class="text-green">Food</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
