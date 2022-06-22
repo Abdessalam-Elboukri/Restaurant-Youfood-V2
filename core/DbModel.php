@@ -89,10 +89,10 @@ abstract class DbModel extends Model
 
     }
 
-    public function delete(int $id)
+    public function delete(int $id, String $col)
     {
         $tableName = $this->tableName();
-        $statement = self::prepare("DELETE FROM $tableName WHERE id = $id");
+        $statement = self::prepare("DELETE FROM $tableName WHERE $col = $id");
         $statement->execute();
         return true;
     }

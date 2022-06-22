@@ -26,8 +26,6 @@ class PlatController extends Controller
             if($plat->save()){
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
-            $this->setLayout('main_resto');
-            return $this->render('add_plats');
         }
       
     }
@@ -39,7 +37,7 @@ class PlatController extends Controller
             if($plat->selectAll()){
                 $plat->loadData($request->getBody());
                 $plat->loadData($plat->dataList);
-                // var_dump($plat); exit;
+                
                 $params=[
                     'plats' => $plat->dataList
                 ];
@@ -49,6 +47,24 @@ class PlatController extends Controller
             }
             
     }
+
+    public function deletePlat(Request $request)
+    {
+        $id = $_GET['id'] ;
+        $col= 'id_plat';
+        $plat = new PlatsModel();
+
+            if($request->isGet())
+            {
+                $plat->loadData($request->getBody());
+                if($plat->delete($id, $col)){
+                Application::$app->response->redirect('/Restaurant-add_plats');  
+                }
+            }
+    }
+
+
+    
 
 }
 
