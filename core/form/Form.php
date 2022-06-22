@@ -25,4 +25,9 @@ class Form
         return new Field($model, $attribute);
     }
 
+    public function selectField(Model $model, $attribute, $values)
+    {
+        return new SelectField($model, $attribute, $values);
+    }
+
 }
