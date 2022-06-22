@@ -52,6 +52,20 @@ abstract class DbModel extends Model
         return true;
     }
 
+    public function updatePlat(int $id, string $col)
+    {
+        $tableName = $this->tableName();
+        $attributes = $this->attributes();
+        $params = array_map(fn($attr) => "$attr=:$attr", $attributes );
+        $statement = self::prepare("UPDATE $tableName SET  
+                   ".implode(',', $params)." WHERE $col = $id");
+        foreach($attributes as $attribute){
+            $statement->bindValue(":$attribute", $this->{$attribute});
+        }
+        $statement->execute();
+        return true;
+    }
+
     public function selectAll($attributes=[])
     {
         
@@ -67,12 +81,12 @@ abstract class DbModel extends Model
         return true;
     }
 
-    public function select(int $id)
+    public function select(int $id, string $col)
     {
         $tableName = $this->tableName();
-        $statement = self::prepare("SELECT * FROM $tableName where id = $id");
+        $statement = self::prepare("SELECT * FROM $tableName where $col = $id");
         $statement->execute();
-        $this->dataList = $statement->fetch(PDO::FETCH_OBJ);
+        $this->dataList = $statement->fetch();
         return true;
     }
 
