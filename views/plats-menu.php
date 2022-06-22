@@ -1,3 +1,6 @@
+    <?php  
+        if(empty($_POST)){
+    ?>
     <div class="p-3 ">
         <a href="search-menu " class="button text-white">back to search</a>
     <h5 class="">you are seen the menu for : </h5>
@@ -22,7 +25,7 @@
         </div>
         <div class="d-flex flex-wrap p-md-3 gap-md-5 gap-4 justify-content-center justify-content-md-start">
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="entrer-1" class="d-none input1" value="entre1" name="entre">
+                <input type="radio" id="entrer-1" class="d-none input1" value="<?php echo $data1['entre1']?>" name="entre">
                 <label for="entrer-1" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -33,7 +36,7 @@
             </div>
             <!-- == -->
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="entrer-2" class="d-none input1" value="entre2" name="entre">
+                <input type="radio" id="entrer-2" class="d-none input1" value="<?php echo $data1['entre2'] ?>" name="entre">
                 <label for="entrer-2" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -49,13 +52,13 @@
     </div>
     <!-- PLATS PRINCIPALE -->
     <div class="container-fluid p-3">
-        <div class="mt-4 ps-2 ">
+        <div class="mt-2 ps-2 ">
             <h5 class="fw-bold category-p">PLATS PRINCIPALE </h5>
             <span class="line-green"></span>
         </div>
         <div class="d-flex flex-wrap p-md-3 gap-md-5 gap-4 justify-content-center justify-content-md-start">
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="plat-1" class="d-none input1" value="plat1" name="plat">
+                <input type="radio" id="plat-1" class="d-none input1" value="<?php echo $data1['plat1'] ?>" name="plat">
                 <label for="plat-1" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -67,7 +70,7 @@
             </div>
             <!-- == -->
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="plat-2" class="d-none input1" value="plat2" name="plat">
+                <input type="radio" id="plat-2" class="d-none input1" value="<?php echo $data1['plat2'] ?>" name="plat">
                 <label for="plat-2" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -81,13 +84,13 @@
     </div>
     <!-- DESSERT -->
     <div class="container-fluid p-3">
-        <div class="mt-4 ps-2 ">
+        <div class="mt-2 ps-2 ">
             <h5 class="fw-bold category-p">Desserts </h5>
             <span class="line-green"></span>
         </div>
         <div class="d-flex flex-wrap p-md-3 gap-md-5 gap-4 justify-content-center justify-content-md-start">
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="dessert-1" class="d-none input1" value="dessert1" name="dessert">
+                <input type="radio" id="dessert-1" class="d-none input1" value="<?php echo $data1['dessert1']  ?>" name="dessert">
                 <label for="dessert-1" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -99,7 +102,7 @@
             </div>
             <!-- == -->
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="dessert-2" class="d-none input1" value="dessert2" name="dessert">
+                <input type="radio" id="dessert-2" class="d-none input1" value="<?php echo $data1['dessert2']   ?>" name="dessert">
                 <label for="dessert-2" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -110,7 +113,7 @@
             </div>
             <!-- == -->
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
-                <input type="radio" id="dessert-3" class="d-none input1" value="dessert3" name="dessert">
+                <input type="radio" id="dessert-3" class="d-none input1" value="<?php echo $data1['dessert3']  ; ?>" name="dessert">
                 <label for="dessert-3" class="label1">
                     <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
@@ -136,4 +139,8 @@
         <h2> No menu for this date </h2>
     <?php } ?>
 </div>
+
+<?php }else{
+    header('location:search-menu');
+} ?>
 

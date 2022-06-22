@@ -22,8 +22,7 @@
                     </ul>
 
                     <?php 
-                        var_dump($data1[0]);
-                        if(!empty($data1[0])){
+                        if(!empty($data1)){
 
                         
                     ?>

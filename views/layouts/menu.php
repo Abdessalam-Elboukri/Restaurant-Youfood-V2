@@ -28,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-lg-end" id="navbarNavAltMarkup">
                     <div class="navbar-nav d-flex  align-items-center gap-3">
-                        <a class="nav-link " href="plats-menu">Plats de Semaine</a>
+                        <a class="nav-link " href="search-menu">Plats de Semaine</a>
                         <a class="nav-link" href="vos-plats">Vos Plats </a>
                         <a class="nav-link" href="#">Contact Nous</a>
                         <a class="nav-link" href="#">A propos</a>
