@@ -32,6 +32,13 @@ class MenuController extends Controller
         $this->setLayout('auth');
         return $this->render('menu-search');
         }
+
+
+        public function menu(Request $request)
+        {
+            $this->setLayout('main_resto');
+            return $this->render('menu');
+        }
         
 
 }
