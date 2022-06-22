@@ -32,5 +32,23 @@ class PlatController extends Controller
       
     }
 
+
+    public function SellectAllPlat(Request $request)
+    {
+        $plat = new PlatsModel();
+            if($plat->selectAll()){
+                $plat->loadData($request->getBody());
+                $plat->loadData($plat->dataList);
+                // var_dump($plat); exit;
+                $params=[
+                    'plats' => $plat->dataList
+                ];
+
+                $this->setLayout('main_resto');
+                return $this->render('add_plat', $params);
+            }
+            
+    }
+
 }
 

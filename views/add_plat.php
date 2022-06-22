@@ -26,49 +26,18 @@
                 </thead>
 
                 <tbody>
-
+                
+                <?php  foreach($plats as $plat):?>
+                <?php ?>
                 <tr class="bg-white align-middle">
                     <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
+                <td class=""><?= $plat->nom_plat?></td>
+                    <td class=""><?= $plat->desc_plat?></td>
+                    <td class=""><?= $plat->cat_plat ?></td>
                     <td class=""><a href=""><i class="fa-solid fa-pen text-gris"></i></a></td>
                     <td class=""><a href=""><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
                 </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-                <tr class="bg-white align-middle">
-                    <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                    <td class="">Poulet Mariné</td>
-                    <td class="">Poulet grillé au sauce blanche</td>
-                    <td class="">Plat principal</td>
-                    <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                    <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                </tr>
-
-
-                    <tr class="bg-white align-middle">
-                        <td class=""><img src="images/kisspng-hamburger-street-food-seafood-fast-food-delicious-food-5a75083cceaf41.2676743415176192608466.png" alt="" height="50" width="50"></td>
-                        <td class="">Poulet Mariné</td>
-                        <td class="">Poulet grillé au sauce blanche</td>
-                        <td class="">Plat principal</td>
-                        <td class=""><a href="./students/edit.php?edit="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                        <td class=""><a href="./students/delete.php?delete="><i class="fa-solid fa-trash-can text-gris"></i></i></a></td>
-                    </tr>
+               <?php endforeach ?>
 
                 </tbody>
             </table>
