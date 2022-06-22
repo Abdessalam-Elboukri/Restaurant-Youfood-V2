@@ -88,6 +88,15 @@ abstract class DbModel extends Model
 
 
     }
+    public function getMyCommands(String $date , String $user){
+        $tableName = $this->tableName();
+        $statement = self::prepare("SELECT * FROM $tableName  WHERE menu_date =  ? AND fk_user = ? ");
+        $statement ->bindParam(1, $date, PDO::PARAM_STR);
+        $statement ->bindParam(2, $user, PDO::PARAM_STR);
+        $statement->execute();
+        $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return true;
+    }
 
     public function delete(int $id)
     {

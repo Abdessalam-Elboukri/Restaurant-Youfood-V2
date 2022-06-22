@@ -11,45 +11,22 @@ use app\models\OrderedplatModel;
 class MenuController extends Controller
 {
     public function MenuList(Request $request ){
+        
         $plats_menu = new MenuModel();
          if($request->isPost()){
             $plats_menu->loadData($request->getBody());
-            $plats_menu->GetMenu('disponible_at',$_POST['date_menu']);
+            $plats_menu->GetMenu('disponible_at',$_POST['date_menu']); 
             $plats_menu->loadData($plats_menu->dataList);
-            $params = [
-                'data1' => $plats_menu,
- 
-            ]; 
-            $this->setLayout('menu');
-            return $this->render('plats-menu', $params);
-        }
-        $params = [
-            'data1' => $plats_menu,
+            $_SESSION['data'] = $plats_menu->dataList;
+            Application::$app->response->redirect('/plats-menu');
 
-        ]; 
-        $this->setLayout('menu');
-        return $this->render('plats-menu', $params);
+            $this->setLayout('auth');
+            return $this->render('menu-search');  
+        }
+        $this->setLayout('auth');
+        return $this->render('menu-search');
         }
         
-
-    // public function AddmyCommand(Request $request)
-    // {
-    //     $plat = new OrderedplatModel();
-
-    //     if($request->isPost())
-    //     {
-            
-    //         $plat->loadData($request->getBody());
-
-    //         if ($plat->save()){ //to integrate validate method
-    //             Application::$app->session->sefFlash('success', 'Your Order has been added Succsufuly for Monday');
-    //             Application::$app->response->redirect('lundi-plats');
-    //         }
-
-    //     }
-
-    //     return $this->render('lundi-plats');    
-    // }
 
 }
 
