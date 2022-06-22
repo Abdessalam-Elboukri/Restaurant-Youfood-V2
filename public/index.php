@@ -7,6 +7,7 @@ use app\controllers\MenuController;
 
 use app\controllers\TestController;
 use app\controllers\RestoController;
+use app\controllers\PlatController;
 
 require_once __DIR__.'/../vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
@@ -35,6 +36,7 @@ $app->router->post('/plats-menu', [MenuController::class, 'MenuList']);
 
 $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
 $app->router->get('/Restaurant-add_plats', [RestoController::class, 'AddPlats']);
+$app->router->post('/Restaurant-add_plats', [PlatController::class, 'addPlat']);
 
 
 $app->router->get('/manager-login', [AuthController::class, 'manager-login']);
