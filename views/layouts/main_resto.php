@@ -63,13 +63,13 @@
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link text-gris nav_item small  fw-normal" href="dashboard">
+                            <a class="nav-link text-gris nav_item small  fw-normal" href="/Restaurant-Dashboard">
                                 <div class="sb-nav-link-icon pe-3"><i class="fa-solid fa-star"></i></i></div>
                                 Dashboard
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link text-gris nav_item small  fw-normal" href="restaurant/add_plats">
+                            <a class="nav-link text-gris nav_item small  fw-normal" href="/Restaurant-add_plats">
                                 <div class="sb-nav-link-icon pe-3"><i class="fa-solid fa-utensils"></i></div>
                                 Menu
                             </a>
