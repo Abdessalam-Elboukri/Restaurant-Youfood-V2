@@ -23,6 +23,7 @@ class PlatController extends Controller
         if($request->isPost())
         {
             $plat->loadData($request->getBody());
+            // var_dump()
             if($plat->save()){
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
@@ -35,9 +36,8 @@ class PlatController extends Controller
     {
         $plat = new PlatsModel();
             if($plat->selectAll()){
-                $plat->loadData($request->getBody());
-                $plat->loadData($plat->dataList);
-                
+
+                // $plat->loadData($plat->dataList);
                 $params=[
                     'plats' => $plat->dataList
                 ];
@@ -56,7 +56,6 @@ class PlatController extends Controller
 
             if($request->isGet())
             {
-                $plat->loadData($request->getBody());
                 if($plat->delete($id, $col)){
                 Application::$app->response->redirect('/Restaurant-add_plats');  
                 }
@@ -64,7 +63,41 @@ class PlatController extends Controller
     }
 
 
-    
+    public function updatePlat(Request $request)
+    {
+        $id = $_GET['id'] ;
+        $col= 'id_plat';
+        $plat = new PlatsModel();
+        if($request->isGet()){
+            if($plat->select($id, $col)){          
+                $plat->loadData($plat->dataList);
+                $plat->dataList = null;
+            }
 
+            $this->setLayout('main_resto');
+            return  $this->render('update_plat',
+            ['model' => $plat]);
+        }
+
+        if($request->isPost()){
+            $plat->loadData($request->getBody());
+            if($plat->validate() && $plat->updatePlat($id, $col)){
+                Application::$app->session->sefFlash('success', 'Thanks for updating Student');
+                Application::$app->response->redirect('/Restaurant-add_plats');
+            }
+            
+            
+            $this->setLayout('main_resto');
+            return  $this->render('update_plat',
+            ['model' => $plat]);
+
+           
+        }
+
+
+           
+    }
+
+   
 }
 
