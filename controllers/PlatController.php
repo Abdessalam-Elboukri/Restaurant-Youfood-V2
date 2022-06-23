@@ -97,22 +97,31 @@ class PlatController extends Controller
 
     public function selectPlat(Request $request)
         {
-            $id='Entree';
-            $col='cat_plat';
+            $entree=[];
+            $plat_principal = [];
+            $dessert =[];
+            
             $plat = new PlatsModel();
-            if($request->isGet()){
-                
-                if($plat->Get($col, $id,['nom_plat'])){
-                    //  echo '<pre>';
-                    // var_dump($plat);
-                    // echo '<pre>';
-                    // exit;
+
+            if($request->isGet())
+            {
+                if($plat->Get('cat_plat', 'entree',['nom_plat'])){
+                    $entree = $plat->dataList;
+                }
+                if($plat->Get('cat_plat', 'plat principal',['nom_plat'])){
+                    $plat_principal = $plat->dataList;
+                }
+                if($plat->Get('cat_plat', 'dessert',['nom_plat'])){
+                    $dessert = $plat->dataList;
+                }
+                if(isset($entree) && isset($plat_principal) && isset($dessert))
+                {
                     $this->setLayout('main_resto');
-                    return $this->render('add_menu',
-                    [
-                        'plats' => $plat->dataList
-                    ]);
-            }
+                            return $this->render('add_menu',
+                            [
+                                'entrees' => $entree , 'plats' => $plat_principal, 'desserts' => $dessert  
+                            ]); 
+                }
             }
     
         }
