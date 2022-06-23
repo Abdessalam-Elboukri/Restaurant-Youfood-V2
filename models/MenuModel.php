@@ -30,24 +30,39 @@ class MenuModel extends DbModel
     public function rules(): array
     {
         return [
-            'entrer' => [self::RULE_REQUIRED],
-            'principale' => [self::RULE_REQUIRED],
-            'dessert' => [self::RULE_REQUIRED],
+            'entre1' => [self::RULE_REQUIRED],
+            'entre2' => [self::RULE_REQUIRED],
+            'plat1' => [self::RULE_REQUIRED],
+            'plat2' => [self::RULE_REQUIRED],
+            'dessert1' => [self::RULE_REQUIRED],
+            'dessert2' => [self::RULE_REQUIRED],
+            'dessert3' => [self::RULE_REQUIRED],
+            'disponible_at' => [self::RULE_REQUIRED],
         ];
     }
 
     public function attributes(): array
     {
-        return ['entrer', 'principale', 'dessert'];
+        return ['entre1', 'entre2', 'plat1', 'plat2', 'dessert1', 'dessert2', 'dessert3','disponible_at'];
     }
 
 
     
-  public function GetMenu(String $col, String $value ){
-    return parent::GetMenu($col, $value );
+  public function Get(String $col, String $value,$attributes=[] ){
+    return parent::Get($col, $value,$attributes);
 
   }
+  
 
+    public function select( $id, string $col)
+    {
+        return parent::select($id, $col);
+    }
+
+    public function deleteMenu( $id, string $col)
+    {
+        return parent::delete($id, $col);
+    }
 
     
 }

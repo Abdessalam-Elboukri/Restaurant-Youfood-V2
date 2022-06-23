@@ -1,6 +1,9 @@
 <main>
     <div class=" mini-navBar border-bottom border-2 d-flex justify-content-between align-items-center">
-        <h6 class="fw-bold m-0 ps-3">Table des plats</h6>
+        <div class="d-flex">
+            <h6 class="fw-bold m-0 ps-3">Table des plats</h6>
+            <a href="/Restaurant_menus" ><h6 class="fw-bold text-secondary m-0 ps-3 ">Table des menus</h6></a>
+        </div>
         <div class="d-flex gap-3">
             <button class="btn btn-secondary py-1 fs-13" data-bs-toggle="modal" data-bs-target="#exampleModal"> Ajouter un plat</button>
             <div class="me-4 border rounded-pill ps-2">
