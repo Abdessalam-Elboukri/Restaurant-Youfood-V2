@@ -8,6 +8,8 @@ use app\core\Request;
 use app\models\MenuModel;
 use app\models\OrderedplatModel;
 use app\models\PlatsModel;
+use PDO;
+use PDOException;
 
 // class PlatController extends Controller
 // {
@@ -51,6 +53,42 @@ class MenuController extends Controller
                 }
             }
     
+        }
+
+        public function addMenu(Request $request)
+        {
+            $menu = new MenuModel();
+
+            if($request->isPost()){
+                $menu->loadData($request->getBody());
+                
+                try
+                {   $menu->save();
+                    Application::$app->response->redirect('/Restaurant_menus');
+                }
+                catch(PDOException $e)
+                {
+                    $_SESSION['errorMenu']= 'La date que vous avez selectionez est déjà rempli';
+                    
+                    Application::$app->response->redirect('/Restaurant-add_menus');
+                    
+                }
+            }
+    
+        }
+
+        public function deletePlat(Request $request)
+        {
+            $id = $_GET['id'] ;
+            $col= 'id_menu';
+            $menu = new MenuModel();
+                if($request->isGet())
+                {
+                    if($menu->deleteMenu($id, $col))
+                    {
+                    Application::$app->response->redirect('/Restaurant_menus');  
+                    }
+                }
         }
 
 
