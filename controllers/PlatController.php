@@ -66,22 +66,35 @@ class PlatController extends Controller
         $col= 'id_plat';
         $plat = new PlatsModel();
         if($request->isGet()){
-            if($plat->select($id, $col)){          
+            if($plat->select($id, $col)){        
                 $plat->loadData($plat->dataList);
-                $plat->dataList = null;
+                if($plat->dataList)
+                {
+                    $plat->dataList = null;
+                    $this->setLayout('main_resto');
+                    return  $this->render('update_plat',
+                    ['model' => $plat]);
+                }
+            Application::$app->response->redirect('/Restaurant-add_plats');
+            
             }
 
-            $this->setLayout('main_resto');
-            return  $this->render('update_plat',
-            ['model' => $plat]);
+            Application::$app->response->redirect('/Restaurant-add_plats');
+
+            
         }
 
         if($request->isPost()){
+           
             $plat->loadData($request->getBody());
+           
             if($plat->validate() && $plat->updatePlat($id, $col)){
+               
                 Application::$app->session->sefFlash('success', 'Thanks for updating Student');
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
+
+            
             
             
             $this->setLayout('main_resto');
