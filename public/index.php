@@ -57,8 +57,9 @@ $app->router->post('/plats-menu', [OrdersController::class, 'OrderPlat']);
 
 
     // *******************************Addmenu*************************************
-    $app->router->get('/Restaurant_menus', [MenuController::class, 'menu']);
-    // $app->router->post('/Restaurant-add_menus', [MenuController::class, 'addmenu']);
+    $app->router->get('/Restaurant_menus', [MenuController::class, 'menus']);
+    $app->router->get('/Restaurant-add_menus', [PlatController::class, 'selectPlat']);
+    $app->router->post('/Restaurant-add_menus', [MenuController::class, 'addMenu']);
 
     // // *******************************delete*************************************
     //     $app->router->get('/Restaurant-add_plats/delete', [PlatController::class, 'deletePlat']);

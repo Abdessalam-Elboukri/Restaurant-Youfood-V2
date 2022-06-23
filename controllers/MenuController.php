@@ -16,12 +16,13 @@ use app\models\PlatsModel;
 
 class MenuController extends Controller
 {
-    public function MenuList(Request $request ){
+    public function MenuList(Request $request )
+    {
         
         $plats_menu = new MenuModel();
          if($request->isPost()){
             $plats_menu->loadData($request->getBody());
-            $plats_menu->GetMenu('disponible_at',$_POST['date_menu']); 
+            $plats_menu->Get('disponible_at',$_POST['date_menu']); 
             $plats_menu->loadData($plats_menu->dataList);
             $_SESSION['data'] = $plats_menu->dataList;
             Application::$app->response->redirect('/plats-menu');
@@ -31,14 +32,31 @@ class MenuController extends Controller
         }
         $this->setLayout('auth');
         return $this->render('menu-search');
-        }
+    }
 
 
-        public function menu(Request $request)
+
+        public function menus(Request $request)
         {
-            $this->setLayout('main_resto');
-            return $this->render('menu');
+            $menu = new MenuModel();
+            if($request->isGet()){
+
+                $menu->loadData($request->getBody());
+                if($menu->selectAll()){
+                    $this->setLayout('main_resto');
+                    return $this->render('menu', 
+                    [
+                        'menus' => $menu->dataList
+                    ]);
+                }
+            }
+    
         }
+
+
+
+        
+        
         
 
 }

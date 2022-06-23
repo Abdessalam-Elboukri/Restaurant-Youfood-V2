@@ -16,14 +16,13 @@
             <table class="plat table table_plat table-borderless  fs-12 fw-normal">
                 <thead class="">
                     <tr class="rounded-3 border border-bottom border-2 ">
-
-                        <th>#</th>
                         <th>Entree1</th>
                         <th>Entree2</th>
                         <th>Plat Principal1</th>
                         <th>Plat Principal2</th>
                         <th>Dessert1</th>
                         <th>Dessert2</th>
+                        <th>Dessert3</th>
                         <th>Disponibilité</th>
                         <th class="invisible p-8">Update</th>
                         <th class="invisible p-8">Delete</th>
@@ -32,30 +31,21 @@
                 </thead>
 
                 <tbody>
+                    <?php foreach($menus as $menus):?>
                     <tr>
-                        <td>1</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>12/09/2022</td>
-                        <td class=""><a href="/update_plat?id="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                        <td class=""><a href="Restaurant-add_plats/delete?id="><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
+                        <td><?= $menus->entre1?></td>
+                        <td><?= $menus->entre2?></td>
+                        <td><?= $menus->plat1?></td>
+                        <td><?= $menus->plat2?></td>
+                        <td><?= $menus->dessert1?></td>
+                        <td><?= $menus->dessert2?></td>
+                        <td><?= $menus->dessert3?></td>
+                        <td><?= $menus->disponible_at?></td>
+                        <td class=""><a href="/update_menu?id=<?= $menus->id_menu?>"><i class="fa-solid fa-pen text-gris"></i></a></td>
+                        <td class=""><a href="Restaurant-add_plats/delete?id=<?= $menus->id_menu?>"><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>Khizo</td>
-                        <td>12/09/2022</td>
-                        <td class=""><a href="/update_plat?id="><i class="fa-solid fa-pen text-gris"></i></a></td>
-                        <td class=""><a href="Restaurant-add_plats/delete?id="><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
-                    </tr>
+                    <?php endforeach?>
+                    
                 </tbody>
             </table>
         </div>
