@@ -18,19 +18,36 @@ class MenuController extends Controller
 {
     public function MenuList(Request $request ){
         
-        $plats_menu = new MenuModel();
-         if($request->isPost()){
-            $plats_menu->loadData($request->getBody());
-            $plats_menu->GetMenu('disponible_at',$_POST['date_menu']); 
-            $plats_menu->loadData($plats_menu->dataList);
-            $_SESSION['data'] = $plats_menu->dataList;
-            Application::$app->response->redirect('/plats-menu');
+     $data=[];
 
+        $plats_menu = new MenuModel();
+
+         if($request->isPost()){
+
+            $plats_menu->loadData($request->getBody());
+            $plats_menu->getMyCommands('commands', $_POST['menu_date'],$_SESSION['user_id']) ;
+            $plats_menu->loadData($plats_menu->dataList);
+            
+            if(!empty($plats_menu->dataList)){
+                var_dump($plats_menu->dataList);
+                $_SESSION['msg']='this menu already Reserved';
+                Application::$app->response->redirect('/plats-menu');
+                exit;
+            }
+
+            $plats_menu->GetMenu('disponible_at',$_POST['menu_date']); 
+            $plats_menu->loadData($plats_menu->dataList);
+            // $data = $plats_menu->dataList
+            $_SESSION['data'] = $plats_menu->dataList;
+            // var_dump($plats_menu->dataList);exit;
+            Application::$app->response->redirect('/plats-menu');
+            
             $this->setLayout('auth');
-            return $this->render('menu-search');  
+            return $this->render('menu-search'); 
         }
         $this->setLayout('auth');
-        return $this->render('menu-search');
+            return $this->render('menu-search');
+             
         }
         
 

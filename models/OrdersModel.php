@@ -44,6 +44,11 @@ class OrdersModel extends DbModel
         return parent::selectAll();
     }
 
+
+    public function select($id, $col)
+    {
+        return parent::select($id, $col);
+    }
     
     
     public function save()
@@ -51,9 +56,9 @@ class OrdersModel extends DbModel
         return parent::save();
     }
 
-    public function getMyCommands(String $date, String $user )
+    public function getMyCommands(String $table,String $date, String $user )
     {
-        return parent::getMyCommands($date , $user);
+        return parent::getMyCommands($table, $date , $user);
     }
 
 

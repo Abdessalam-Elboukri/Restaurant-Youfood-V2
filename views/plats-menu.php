@@ -1,5 +1,6 @@
     <?php  
-        if(empty($_POST)){
+        // if(empty($_SESSION['command'])){
+            // var_dump($data);exit;
     ?>
     <div class="p-3 ">
         <a href="search-menu " class="button text-white">back to search</a>
@@ -126,7 +127,7 @@
     </div>
 
     <input type="hidden" name="fk_user" value="<?php  echo $_SESSION['user_id']?>">
-    <input type="hidden" name="menu_date" value="2022-06-20">
+    <input type="hidden" name="menu_date" value="<?php echo $data1['disponible_at']?>">
 
     <!-- ====== -->
     <div class="w-100 text-center mb-3 ">
@@ -137,10 +138,8 @@
 
     <?php }else{ ?>
         <h2> No menu for this date </h2>
-    <?php } ?>
+    <?php } ; unset($_SESSION['data'])  ?>
 </div>
 
-<?php }else{
-    header('location:search-menu');
-} ?>
+
 
