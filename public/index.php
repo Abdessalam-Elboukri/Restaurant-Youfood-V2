@@ -62,7 +62,7 @@ $app->router->post('/plats-menu', [OrdersController::class, 'OrderPlat']);
     $app->router->post('/Restaurant-add_menus', [MenuController::class, 'addMenu']);
 
     // // *******************************delete*************************************
-    //     $app->router->get('/Restaurant-add_plats/delete', [PlatController::class, 'deletePlat']);
+        $app->router->get('/Restaurant-add_menus/delete', [MenuController::class, 'deletePlat']);
 
     // // *******************************update*************************************
     //     $app->router->get('/update_plat', [PlatController::class, 'updatePlat']);
