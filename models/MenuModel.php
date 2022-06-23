@@ -30,19 +30,20 @@ class MenuModel extends DbModel
     public function rules(): array
     {
         return [
-            'entrer1' => [self::RULE_REQUIRED],
-            'entrer2' => [self::RULE_REQUIRED],
-            'principale1' => [self::RULE_REQUIRED],
-            'principale2' => [self::RULE_REQUIRED],
+            'entre1' => [self::RULE_REQUIRED],
+            'entre2' => [self::RULE_REQUIRED],
+            'plat1' => [self::RULE_REQUIRED],
+            'plat2' => [self::RULE_REQUIRED],
             'dessert1' => [self::RULE_REQUIRED],
             'dessert2' => [self::RULE_REQUIRED],
             'dessert3' => [self::RULE_REQUIRED],
+            'disponible_at' => [self::RULE_REQUIRED],
         ];
     }
 
     public function attributes(): array
     {
-        return ['entrer1', 'entrer2', 'principale1', 'principale2', 'dessert1', 'dessert2', 'dessert3'];
+        return ['entre1', 'entre2', 'plat1', 'plat2', 'dessert1', 'dessert2', 'dessert3','disponible_at'];
     }
 
 
@@ -52,13 +53,15 @@ class MenuModel extends DbModel
 
   }
   
-//   public function jibMenu()
-//   {
-//       return parent::jibMenu();
-//   }
-  public function select( $id, string $col)
+
+    public function select( $id, string $col)
     {
         return parent::select($id, $col);
+    }
+
+    public function deleteMenu( $id, string $col)
+    {
+        return parent::delete($id, $col);
     }
 
     
