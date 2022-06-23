@@ -69,4 +69,8 @@ class PlatsModel extends DbModel
         return parent::select($id, $col);
     }
     
+    public function selectIn(string $values)
+    {
+        return parent::selectIn($values);
+    }
 }

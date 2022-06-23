@@ -99,6 +99,16 @@ abstract class DbModel extends Model
         $statement ->bindParam(1, $value, PDO::PARAM_STR);
         $statement->execute();
         $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($this->dataList[0] as $key => $value){
+            if ($key != 'id_menu' && $key != 'disponible_at' && $key != 'created_at') {
+                $this->listPlats .= "'" . $value . "', ";
+            }
+        }
+        $this->listPlats = substr_replace($this->listPlats , '', -2);
+
+        $plat = new PlatsModel();
+        $this->imgs = $plat->selectIn($this->listPlats);
         return true;
 
 
@@ -137,6 +147,15 @@ abstract class DbModel extends Model
         $statement= self::prepare("SELECT COUNT(*) as number  FROM $tableName");
         $statement->execute();
         return $statement->fetch();
+    }
+
+    public function selectIn(string $values)
+    {
+        $tableName = $this->tableName();
+        $statement = self::prepare("SELECT nom_plat, img_plat FROM $tableName where nom_plat IN ($values)");
+        $statement->execute();
+        return $this->imgs = $statement->fetchAll(PDO::FETCH_ASSOC);
+        // return true;
     }
 
     // public function setProperties(array $properties)

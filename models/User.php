@@ -10,13 +10,12 @@ class User extends DbModel
     const STATUS_ACTIVE = 1;
     const STATUS_DELETED = 2;
 
-    public string $fname = '';
-    public string $lname = '';
+    public string $firstname = '';
+    public string $lastname = '';
     public string $email =  '';
     public string $password = '';
     public string $role = '';
     public string $picture = '';
-    public string $confirmPassword = '';
 
 
     public function tableName(): string

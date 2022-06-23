@@ -24,7 +24,9 @@ class PlatController extends Controller
         {
             $plat->loadData($request->getBody());
             // var_dump()
+            // var_dump($plat); exit;
             if($plat->save()){
+                
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
         }
