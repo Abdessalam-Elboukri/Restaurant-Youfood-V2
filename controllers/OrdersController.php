@@ -40,6 +40,16 @@ class OrdersController extends Controller
         }
     }
 
+    // public function countPlat(Request $request)
+    // {
+    //     $commandes = new OrdersModel();
+
+    //     if($request->isPost())
+    //     {
+            
+    //     }
+    // }
+
     // public function AllUserCommands(Request $request){
     //     $command = new OrdersModel();
     //         $command->loadData($request->getBody());

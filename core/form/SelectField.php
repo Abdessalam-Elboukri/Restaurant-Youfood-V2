@@ -7,6 +7,7 @@ class SelectField
 {
     public Model $model;
     public string $attribute;
+    public string $label;
     public array $optionsValues = [];
 
 
@@ -21,14 +22,17 @@ class SelectField
     public function __toString()
     {
         return sprintf('
-            <div class="form-groupe ">
-                
-                <select class="form-control">
+            <div >
+                <label class="%s"></label>
+                <select class="form-control" name="%s" >
                     %s
                 </select>
                 <div class="invalid-feedback">%s</div>
             </div>
         ',
+            
+            $this->attribute,
+            $this->attribute,
             $this->addOption(),
             $this->model->getFirstError($this->attribute)
         );
@@ -39,7 +43,7 @@ class SelectField
         $str = '';
         foreach($this->optionsValues as $value)
         {
-            $str .= '<option value='.$value.'>' . $value . '</option>';
+            $str .= '<option value="'.$value.'">' . $value . '</option>';
         }
         return $str;
     }

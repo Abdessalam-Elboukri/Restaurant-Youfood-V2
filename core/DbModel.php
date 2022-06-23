@@ -143,6 +143,13 @@ abstract class DbModel extends Model
         return $statement->fetch();
     }
 
+
+    // public function countGroup(Type $var = null)
+    // {
+    //     $tableName = $this->tableName();
+    //     $statement= self::prepare("SELECT COUNT(*) as number  FROM $tableName GROUP BY ");
+    // }
+
     // public function setProperties(array $properties)
     // {
     //     foreach ($properties as $key => $value) {
