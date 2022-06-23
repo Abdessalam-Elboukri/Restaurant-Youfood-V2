@@ -41,6 +41,8 @@ $app->router->get('/Restaurant-add_plats', [PlatController::class, 'SellectAllPl
 $app->router->get('/Restaurant-add_plats/delete', [PlatController::class, 'deletePlat']);
 $app->router->post('/Restaurant-add_plats', [PlatController::class, 'addPlat']);
 
+$app->router->get('/update_plat', [PlatController::class, 'updatePlat']);
+$app->router->post('/update_plat', [PlatController::class, 'updatePlat']);
 
 $app->router->get('/manager-login', [AuthController::class, 'manager-login']);
 $app->router->post('/manager-login', [AuthController::class, 'manager-login']);

@@ -58,5 +58,15 @@ class PlatsModel extends DbModel
     {
         return parent::delete($id,$col);
     }
+
+    public function updatePlat(int $id, string $col)
+    {
+        return parent::updatePlat($id, $col);
+    }
+
+    public function select(int $id, string $col)
+    {
+        return parent::select($id, $col);
+    }
     
 }
