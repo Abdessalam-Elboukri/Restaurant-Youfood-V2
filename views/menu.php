@@ -1,8 +1,13 @@
 <main>
     <div class=" mini-navBar border-bottom border-2 d-flex justify-content-between align-items-center">
-        <h6 class="fw-bold m-0 ps-3"> Table des Menus</h6>
+        <div class="d-flex">
+            <a href="/Restaurant-add_plats">
+                <h6 class="fw-bold text-secondary m-0 ps-3">Table des plats</h6>
+            </a>
+            <h6 class="fw-bold  m-0 ps-3 ">Table des menus</h6>
+        </div>
         <div class="d-flex gap-3">
-            <a href="/Restaurant-add_menus"><button class="btn btn-secondary py-1 fs-13"> Ajouter un menu</button></a>
+            <a href="/Restaurant-add_menus"><button class="btn btn-secondary py-2 fs-13">Ajouter un menu</button></a>
             <div class="me-4 border rounded-pill ps-2">
                 <input type="search" class=" border-0 focus-0" placeholder="Recherche">
                 <button class="btn p-0"><i class="fa-regular fa-magnifying-glass"></i></button>
@@ -31,21 +36,21 @@
                 </thead>
 
                 <tbody>
-                    <?php foreach($menus as $menus):?>
-                    <tr>
-                        <td><?= $menus->entre1?></td>
-                        <td><?= $menus->entre2?></td>
-                        <td><?= $menus->plat1?></td>
-                        <td><?= $menus->plat2?></td>
-                        <td><?= $menus->dessert1?></td>
-                        <td><?= $menus->dessert2?></td>
-                        <td><?= $menus->dessert3?></td>
-                        <td><?= $menus->disponible_at?></td>
-                        <td class=""><a href="/update_menu?id=<?= $menus->id_menu?>"><i class="fa-solid fa-pen text-gris"></i></a></td>
-                        <td class=""><a href="Restaurant-add_plats/delete?id=<?= $menus->id_menu?>"><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
-                    </tr>
-                    <?php endforeach?>
-                    
+                    <?php foreach ($menus as $menus) : ?>
+                        <tr>
+                            <td><?= $menus->entre1 ?></td>
+                            <td><?= $menus->entre2 ?></td>
+                            <td><?= $menus->plat1 ?></td>
+                            <td><?= $menus->plat2 ?></td>
+                            <td><?= $menus->dessert1 ?></td>
+                            <td><?= $menus->dessert2 ?></td>
+                            <td><?= $menus->dessert3 ?></td>
+                            <td><?= $menus->disponible_at ?></td>
+                            <td class=""><a href="/update_menu?id=<?= $menus->id_menu ?>"><i class="fa-solid fa-pen text-gris"></i></a></td>
+                            <td class=""><a href="Restaurant-add_menus/delete?id=<?= $menus->id_menu ?>"><i class="fa-solid fa-trash-can text-danger"></i></i></a></td>
+                        </tr>
+                    <?php endforeach ?>
+
                 </tbody>
             </table>
         </div>
