@@ -17,7 +17,7 @@ class OrdersController extends Controller
         {
             $order->loadData($request->getBody());
             if ($order->save()){
-                Application::$app->response->redirect('/plats-menu');
+                Application::$app->response->redirect('/vos-plats');
             }   
         } 
         $this->setLayout('menu');
