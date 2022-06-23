@@ -1,5 +1,5 @@
     <?php  
-        if(empty($_POST)){
+        if(empty($_SESSION['command'])){
     ?>
     <div class="p-3 ">
         <a href="search-menu " class="button text-white">back to search</a>
@@ -140,7 +140,7 @@
     <?php } ?>
 </div>
 
-<?php }else{
-    header('location:search-menu');
-} ?>
+<?php }else{?>
+    <h5>Menu already reserved , Go to your commands and Check</h5>;
+    <?php }?>
 
