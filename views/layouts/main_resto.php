@@ -36,7 +36,7 @@
                 <li>
                     <hr class="dropdown-divide btn-outliner-dark" />
                 </li>
-                <li> <a href="" class=" text-white dropdown-item"><i class="fas fa-sign-out-alt"></i> Se
+                <li> <a href="logout" class=" text-white dropdown-item"><i class="fas fa-sign-out-alt"></i> Se
                         déconnecter</a></li>
 
             </ul>
@@ -51,7 +51,7 @@
                     <div class="pt-5 d-flex text-center  flex-column gap-3 align-items-center">
                         <img src="images/Scroll Group 1.svg" width="80px" alt="">
                         <div>
-                            <p class="fs-16 fw-bold m-0">Chef Mouha</p>
+                            <p class="fs-16 fw-bold m-0"><?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  ?></p>
                             <p class="fs-14">Manager</p>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small ms-4">
-                    <a href="" class=" text-gris text-decoration-none "><i class="fas fa-sign-out-alt pe-3"></i> Se
+                    <a href="logout" class=" text-gris text-decoration-none "><i class="fas fa-sign-out-alt pe-3"></i> Se
                         déconnecter</a>
                 </div>
             </div>

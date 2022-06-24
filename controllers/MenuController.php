@@ -28,17 +28,20 @@ class MenuController extends Controller
             $plats_menu->getMyCommands('commands', $_POST['menu_date'],$_SESSION['user_id']) ;
             $plats_menu->loadData($plats_menu->dataList);
             
-            if(!empty($plats_menu->dataList)){
-                $_SESSION['msg']='this menu already Reserved';
+            if(isset($plats_menu->dataList)){
+                $_SESSION['msg'] = $_POST['menu_date'];
                 $this->setLayout('menu');
                 return $this->render('menu-search');
+                
             }
 
             $plats_menu->GetMenu('disponible_at',$_POST['menu_date']); 
+            // var_dump($plats_menu->dataList); exit;
             $_SESSION['data'] = $plats_menu->dataList;
             Application::$app->response->redirect('/plats-menu');
         }
-        if ($_SESSION['user_role'] == 'student'){
+
+        elseif ($_SESSION['user_role'] == 'student'){
         $this->setLayout('menu');
             return $this->render('menu-search');
         }else{
