@@ -61,6 +61,21 @@ class OrdersModel extends DbModel
         return parent::getMyCommands($table, $date , $user);
     }
 
+    public function countGroup($col, $where, String $date)
+    {
+        return parent::countGroup($col, $where, $date);
+    }
+
+    public function count($col, $where, $value)
+    {
+        return parent::count($col, $where, $value);
+    }
+        
+        // (String $table,String $date, String $user )
+        // {
+        //     return parent::getMyCommands($table, $date , $user);
+        // }
+
 
 
 

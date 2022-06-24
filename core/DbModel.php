@@ -104,14 +104,12 @@ abstract class DbModel extends Model
         $statement->execute();
         $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
         return true;
-
-
     }
+
     public function getMyCommands(String $table, String $date , String $user){
         $statement = self::prepare("SELECT * FROM $table  WHERE menu_date =  ? AND fk_user = ? ");
         $statement ->bindParam(1, $date, PDO::PARAM_STR);
         $statement ->bindParam(2, $user, PDO::PARAM_STR);
-        $statement->execute();
         $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
         return true;
     }
@@ -136,19 +134,33 @@ abstract class DbModel extends Model
         $statement->execute();
         return $statement->fetchObject(static::class);
     }
-    public function count(){
-         $tableName = $this->tableName();
-        $statement= self::prepare("SELECT COUNT(*) as number  FROM $tableName");
+
+
+    public function count($col, $where, $value){
+        $tableName = $this->tableName();
+        $statement= self::prepare("SELECT COUNT($col) as number  FROM $tableName WHERE $where = ?");
+        $statement->bindParam(1, $value, PDO::PARAM_STR);
         $statement->execute();
-        return $statement->fetch();
+        $this->dataList = $statement->fetch(PDO::FETCH_OBJ);
+        return true;
     }
 
 
-    // public function countGroup(Type $var = null)
-    // {
-    //     $tableName = $this->tableName();
-    //     $statement= self::prepare("SELECT COUNT(*) as number  FROM $tableName GROUP BY ");
-    // }
+
+
+
+    public function countGroup($col, $where, String $date)
+    {
+        $tableName = $this->tableName();
+        $statement = self::prepare("SELECT $col, COUNT($col) as number FROM $tableName WHERE $where = ? GROUP BY $col");
+        $statement->bindParam(1, $date, PDO::PARAM_STR);
+        $statement->execute();
+        $this->dataList = $statement->fetchAll(PDO::FETCH_OBJ);
+        // echo '<pre>';
+        // var_dump($statement);
+        // echo '<pre>';exit;
+        return true;
+    }
 
     // public function setProperties(array $properties)
     // {

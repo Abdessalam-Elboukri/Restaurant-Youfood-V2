@@ -37,7 +37,8 @@ $app->router->post('/plats-menu', [OrdersController::class, 'OrderPlat']);
     $app->router->get('/search-menu', [MenuController::class, 'MenuList']);
     $app->router->post('/search-menu', [MenuController::class, 'MenuList']);
 
-    $app->router->get('/Restaurant-Dashboard', [RestoController::class, 'DashboardResto']);
+    $app->router->get('/Restaurant-Dashboard', [OrdersController::class, 'countPlat']);
+    $app->router->post('/Restaurant-Dashboard', [OrdersController::class, 'countPlat']);
 
 
 
