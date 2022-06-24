@@ -18,7 +18,16 @@ class AuthController extends Controller
         if($request->isPost()) {
             $user -> loadData($request -> getBody());
             if($user -> validate() && $user -> login()) {
-                Application::$app ->response-> redirect('/');
+                if( $_SESSION['user_role'] == 'student'){
+                    Application::$app ->response-> redirect('/');
+                }elseif($_SESSION['user_role'] == 'resto'){
+                    Application::$app ->response-> redirect('/Restaurant-Dashboard');
+                }elseif($_SESSION['user_role'] == 'admin'){
+                    Application::$app ->response-> redirect('/Restaurant-Dashboard');
+                }else{
+                    Application::$app ->response-> redirect('/not_found');
+                }
+                
             }
         }
 

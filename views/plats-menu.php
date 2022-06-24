@@ -1,15 +1,4 @@
-    <?php 
-    // echo "<pre>";
-    // var_dump($menus); 
-    // echo "</pre>";
-
-    // echo "<br>";
-
-    echo "<pre>";
-    var_dump($imgs);
-    echo "</pre>";
-
-    var_dump($imgs[0]['img_plat']);
+    <?php  
         // if(empty($_SESSION['command'])){
             // var_dump($data);exit;
     ?>
@@ -18,8 +7,8 @@
     <h5 class="">you are seen the menu for : </h5>
     <p class="green-text">
         <?php 
-        if(!empty( $menus)){
-         $data1= $menus[0];
+        if(!empty( $_SESSION['data'][0])){
+         $data1= $_SESSION['data'][0];
 
             echo $data1['disponible_at'];
         } ?></p>
@@ -29,10 +18,6 @@
     <?php 
         if(!empty($data1)){ 
         $form = app\core\form\Form::begin('', "post");
-
-        foreach($imgs as $img){
-
-        }
     ?>
     <div class="container-fluid p-3">
         <div class="mt-4 ps-2 ">
@@ -43,16 +28,7 @@
             <div class="card_plat col-md-2  col-7 shadow border-0 overflow-hidden">
                 <input type="radio" id="entrer-1" class="d-none input1" value="<?php echo $data1['entre1']?>" name="entre">
                 <label for="entrer-1" class="label1">
-                    <img 
-                    src=
-                    "<?php
-                        
-                                if($imgs[0]['nom_plat'] == $data1['entre1']){
-                                    echo "images/data/" . $imgs[0]['img_plat'] ;
-                                    
-                                }                    
-                    ?>" 
-                    alt="image de entrer" width="100%" height="300px">
+                    <img src="images/priciple1.jpeg" alt="image de entrer" width="100%">
                     <div class="plats-info p-2">
                         <h5 class="text-green text-meduim"><?php echo $data1['entre1']?></h5>
                         <p class="small-text m-0"><?php ?></p>
@@ -161,7 +137,10 @@
     <?php // endforeach;  ?>
 
     <?php }else{ ?>
-        <h2> No menu for this date </h2>
+        <div class="text-center">
+            <h2> No menu for this date </h2>
+        </div>
+        
     <?php } ; unset($_SESSION['data'])  ?>
 </div>
 

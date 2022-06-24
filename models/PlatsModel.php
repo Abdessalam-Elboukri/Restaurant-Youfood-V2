@@ -73,4 +73,8 @@ class PlatsModel extends DbModel
     {
         return parent::selectIn($values);
     }
+
+    public function CheckRole(string $role){
+        return parent ::CheckRole($role);
+    }
 }

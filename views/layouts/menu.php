@@ -74,6 +74,7 @@
                 <div class="container-fluid p-0 m-0 content mr-content">
                     {{content}}
                 </div>
+            </div>
                 <footer class="bg-black text-white p-3 d-flex justify-content-between align-items-center flex-wrap">
                     <p class="small-text m-0">
                         © 2022 YouFood Technologies Inc.

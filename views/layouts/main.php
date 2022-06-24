@@ -36,7 +36,7 @@
                             <a class="small-text" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="circle-ntf"></span>
                             <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative" width="40px">
-                               <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  var_dump($_SESSION['user_role'])?>
+                               <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  ?>
                             </a>
                             <ul class="dropdown-menu shadow down-menu bg-light border-0 pb-0" aria-labelledby="navbarDropdownMenuLink" style="min-width:3rem">
                                 <li><a class="dropdown-item" href="profile">Profile</a></li>

@@ -55,4 +55,10 @@ class User extends DbModel
     {
         return ['fname', 'lname', 'email', 'password', 'role' , 'picture'];
     }
+
+
+    public function CheckRole(string $role){
+        return parent ::CheckRole($role);
+    }
 }
+

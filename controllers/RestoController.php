@@ -9,8 +9,13 @@ use app\models\User;
 
 class RestoController extends Controller{
      public function DashboardResto(){
-         $this->setLayout('main_resto');
+        if ($_SESSION['user_role'] == 'resto'){
+            $this->setLayout('main_resto');
          return $this->render('Dashboard');
+        }else{
+            Application::$app->response->redirect('/');
+        }
+         
      }
 
      

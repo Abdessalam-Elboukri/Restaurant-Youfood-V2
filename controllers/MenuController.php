@@ -29,21 +29,21 @@ class MenuController extends Controller
             $plats_menu->loadData($plats_menu->dataList);
             
             if(!empty($plats_menu->dataList)){
-                var_dump($plats_menu->dataList);
                 $_SESSION['msg']='this menu already Reserved';
-                // $this->setLayout('menu');
+                $this->setLayout('menu');
                 return $this->render('menu-search');
             }
 
             $plats_menu->GetMenu('disponible_at',$_POST['menu_date']); 
-            return $this->render('plats-menu', [
-                'menus' => $plats_menu->dataList,
-                'imgs' => $plats_menu->imgs
-            ]);
+            $_SESSION['data'] = $plats_menu->dataList;
+            Application::$app->response->redirect('/plats-menu');
         }
-        $this->setLayout('auth');
+        if ($_SESSION['user_role'] == 'student'){
+        $this->setLayout('menu');
             return $this->render('menu-search');
-             
+        }else{
+            Application::$app->response->redirect('/not_found');
+        }
         }
         
 

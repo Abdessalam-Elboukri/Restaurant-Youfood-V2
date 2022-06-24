@@ -100,16 +100,16 @@ abstract class DbModel extends Model
         $statement->execute();
         $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach($this->dataList[0] as $key => $value){
-            if ($key != 'id_menu' && $key != 'disponible_at' && $key != 'created_at') {
-                $this->listPlats .= "'" . $value . "', ";
-            }
-        }
-        $this->listPlats = substr_replace($this->listPlats , '', -2);
+        // foreach($this->dataList as $key => $value){
+        //     if ($key != 'id_menu' && $key != 'disponible_at' && $key != 'created_at') {
+        //         $this->listPlats .= "'" . $value . "', ";
+        //     }
+        // }
+        // $this->listPlats = substr_replace($this->listPlats , '', -2);
 
-        $plat = new PlatsModel();
-        $this->imgs = $plat->selectIn($this->listPlats);
-        return true;
+        // $plat = new PlatsModel();
+        // $this->imgs = $plat->selectIn($this->listPlats);
+        // return true;
 
 
     }
@@ -132,10 +132,10 @@ abstract class DbModel extends Model
 
     public static function findOne($where)
     {
-
+        // SELECT id_user, lastname, firstname,email,password, role FROM users INNER JOIN role WHERE fk_role=role_id AND email='aymanedarji7@gmail.com';
         $attributes = array_keys($where);
         $sql = implode("AND", array_map(fn($attr) => "$attr = :$attr", $attributes));
-        $statement = self::prepare("SELECT * FROM users WHERE $sql");
+        $statement = self::prepare("SELECT * FROM users INNER JOIN role WHERE fk_role=role_id AND  $sql");
         foreach ($where as $key => $item) {
             $statement->bindValue(":$key", $item);
         }
@@ -158,10 +158,7 @@ abstract class DbModel extends Model
         // return true;
     }
 
-    // public function setProperties(array $properties)
-    // {
-    //     foreach ($properties as $key => $value) {
-    //         $this->{$key} = $value;
-    //     }
-    // }
+    public function CheckRole(string $role){
+        $_SESSION['user_role'] == $role;
+    }
 }
