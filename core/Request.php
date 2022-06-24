@@ -42,29 +42,46 @@ class Request
                 $body[$key] = filter_input(INPUT_GET, $key, FILTER_SANITIZE_SPECIAL_CHARS);
             }
         }
-        if ($this->method() === 'post') {
-            foreach ($_POST as $key => $value) {
-                if ($this->method() === 'post') {
-                    $_POST['image']  = null;
-                    $_POST['image1'] = null;
-                    $_POST['image2'] = null;
-                    $_POST['image3'] = null;
-                    foreach ($_POST as $key => $value) {
+        // if ($this->method() === 'post') {
+        //     foreach ($_POST as $key => $value) {
+        //         if ($this->method() === 'post') {
 
-                        if (!empty($_FILES['image1']['name']) && $key === 'image1') {
-                            $image_name = $_FILES['image1']['name'];
-                            $image_file = $_FILES['image1']['tmp_name'];
-                            $terget = "images/data/";
-                            if (move_uploaded_file($image_file, $terget . $image_name)) {
-                                $body[$key] = $image_file;
-                            }
-                        }
-                        $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+        //             $_POST['img_plat']  = null;
+
+        //             if (!empty($_FILES['img_plat']['name']) && $key === 'img_plat') {
+        //                 $image_name = $_FILES['img_plat']['name'];
+        //                 $image_file = $_FILES['img_plat']['tmp_name'];
+        //                 $terget = "images/";
+        //                 if (move_uploaded_file($image_file, $terget . $image_name)) {
+        //                     $body[$key] = $image_file;
+        //                 }
+        //             } else {
+        //                 $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
+        //             }   
+        //         }
+        //         return $body;
+        //     }
+        if ($this->method() === 'post')
+        {
+            $_POST['img_plat'] = $_FILES['img_plat']['name'] ?? '';
+            foreach($_POST as $key => $value)
+            {
+                if(!empty($_FILES['img_plat']['name']) && $key === 'img_plat') {
+                    $filename = $_FILES['img_plat']['name'];
+                    $filetmpname = $_FILES['img_plat']['tmp_name'];
+                    $folder = "images/data/".basename($filename);
+                    if(move_uploaded_file($filetmpname, $folder . $filename))
+                    {
+
+                        $body[$key] = $filename;
+                        // var_dump($filename);exit;
                     }
+                } else {
+                    $body[$key] = filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
                 }
-
-                return $body;
+                
             }
+            return $body;
         }
     }
 }

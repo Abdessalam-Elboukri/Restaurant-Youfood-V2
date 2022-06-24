@@ -21,6 +21,9 @@ class MenuModel extends DbModel
     public string $disponible_at = '';
     public string $created_at = '';
 
+    public string $listPlats = '';
+
+    public array $imgs = [];
 
     public function tableName(): string
     {

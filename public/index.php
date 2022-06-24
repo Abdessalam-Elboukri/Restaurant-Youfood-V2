@@ -24,9 +24,9 @@ $app = new Application(dirname(__DIR__), $config);
 
 /******************************User Pages**********************************/
 
-$app->router->get('/', [new SiteController(), 'home']);
+$app->router->get('/', [SiteController::class, 'home']);
 
-$app->router->get('/vos-plats', [new SiteController(), 'YourPlats']);
+$app->router->get('/vos-plats', [SiteController::class, 'YourPlats']);
 $app->router->post('/vos-plats', [OrdersController::class, 'getCommands']);
 
 $app->router->get('/plats-menu', [OrdersController::class, 'OrderPlat']);

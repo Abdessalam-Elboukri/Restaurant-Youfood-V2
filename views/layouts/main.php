@@ -36,7 +36,7 @@
                             <a class="small-text" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="circle-ntf"></span>
                             <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative" width="40px">
-                               <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  var_dump($_SESSION['user_role'])?>
+                               <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? '';  ?>
                             </a>
                             <ul class="dropdown-menu shadow down-menu bg-light border-0 pb-0" aria-labelledby="navbarDropdownMenuLink" style="min-width:3rem">
                                 <li><a class="dropdown-item" href="profile">Profile</a></li>
@@ -50,9 +50,9 @@
     <?php }
     else{
         ?>
-        <nav class="navbar navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky">
+        <nav class="navbar nav_user navbar-expand-lg  navbar-light bg-light p-2 position-fixed w-100 position-sticky">
         <div class="container-fluid me-lg-3">
-            <a class="navbar-brand logo fw-bold active" href="">You<span class="text-green">Food</span></a>
+            <a class="navbar-brand logo1 fw-bold active" href="">You<span class="text-green">Food</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

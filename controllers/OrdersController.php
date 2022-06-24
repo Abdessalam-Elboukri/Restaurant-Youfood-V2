@@ -18,10 +18,15 @@ class OrdersController extends Controller
             $order->loadData($request->getBody());
             if ($order->save()){
                 Application::$app->response->redirect('/vos-plats');
-            }   
+                return;
+            }  
         } 
-        $this->setLayout('menu');
-        return $this->render('plats-menu');
+        if($request->isGet() && !empty($_SESSION['data']))
+        {
+            $this->setLayout('menu');
+            return $this->render('plats-menu');   
+        }
+        Application::$app->response->redirect('/search-menu');
     }
     
     public function getCommands(Request $request){
@@ -31,36 +36,12 @@ class OrdersController extends Controller
             $command->loadData($request->getBody());
             $command ->getMyCommands('commands', $_POST['date_c'],$_SESSION['user_id'] );
             $command->loadData($command->dataList);
-            var_dump($command->dataList);
-            $_SESSION['command'] = $command->dataList ;
+            // $_SESSION['command'] = $command->dataList ;
             $params = [
                 'data1' => $command->dataList
             ]; 
+            $this->setLayout('auth');
             return $this->render('vos-plats', $params);
         }
     }
-
-    // public function countPlat(Request $request)
-    // {
-    //     $commandes = new OrdersModel();
-
-    //     if($request->isPost())
-    //     {
-            
-    //     }
-    // }
-
-    // public function AllUserCommands(Request $request){
-    //     $command = new OrdersModel();
-    //         $command->loadData($request->getBody());
-    //         $command ->select($_SESSION['user_id'], 'fk_user' );
-    //         $command->loadData($command->dataList);
-    //         $_SESSION['command'] = $command->dataList ;
-    //         // var_dump($_SESSION['command']);exit;
-    //         $this->setLayout('auth');
-    //         return $this->render('menu-search');
-
-            
-    //     }
-    
 }

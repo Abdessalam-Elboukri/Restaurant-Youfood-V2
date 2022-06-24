@@ -13,18 +13,15 @@ class SiteController extends Controller
     {
         return $this->render('home');
     }
-    public function PlatsSemaine()
-    {
-        return $this->render('plats-de-semaine');
-    }
     public function YourPlats()
     {
+        if( $_SESSION['user_role'] == 'student'){
         return $this->render('vos-plats');
+        }else{
+            Application::$app->response->redirect('/not_found');  
+        }
     }
-    public function OrderPlat()
-    {
-        return $this->render('plats-menu');
-    }
+
     
 
     
