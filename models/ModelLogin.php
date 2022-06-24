@@ -43,7 +43,7 @@ class ModelLogin extends Model
                 $_SESSION['user_fname'] = $user_login->firstname;
                 $_SESSION['user_lname'] = $user_login->lastname;
                 $_SESSION['user_picture'] = $user_login->picture;
-                $_SESSION['user_role'] = $user_login->fk_role;
+                $_SESSION['user_role'] = $user_login->role;
              return true;
             }
 

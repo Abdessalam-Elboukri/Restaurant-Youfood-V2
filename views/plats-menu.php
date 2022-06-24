@@ -1,11 +1,8 @@
-    <?php  
-        // if(empty($_SESSION['command'])){
-            // var_dump($data);exit;
-    ?>
-    <div class="p-3 ">
+
+    <div class="p-3 mt-4">
         <a href="search-menu " class="button text-white">back to search</a>
-    <h5 class="">you are seen the menu for : </h5>
-    <p class="green-text">
+    <h5 class="mt-4">you are seen the menu for : </h5>
+    <p class="green-text d-inline">
         <?php 
         if(!empty( $_SESSION['data'][0])){
          $data1= $_SESSION['data'][0];
@@ -134,10 +131,12 @@
         <input type="submit" class="btn btn-green mt-4 button fw-bold text-white px-md-5" value="Commander">
     </div>
     <?php app\core\form\Form::end() ; ?>
-    <?php // endforeach;  ?>
 
     <?php }else{ ?>
-        <h2> No menu for this date </h2>
+        <div class="text-center">
+            <h2> No menu for this date </h2>
+        </div>
+        
     <?php } ; unset($_SESSION['data'])  ?>
 </div>
 

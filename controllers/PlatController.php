@@ -24,6 +24,7 @@ class PlatController extends Controller
         {
             $plat->loadData($request->getBody());
             if($plat->save()){
+                
                 Application::$app->response->redirect('/Restaurant-add_plats');
             }
         }
@@ -38,9 +39,12 @@ class PlatController extends Controller
                 $params=[
                     'plats' => $plat->dataList
                 ];
-
+                if ($_SESSION['user_role'] == 'resto'){
                 $this->setLayout('main_resto');
                 return $this->render('add_plat', $params);
+                }else{
+                    Application::$app->response->redirect('/');
+                }
             }
             
     }
@@ -52,8 +56,7 @@ class PlatController extends Controller
         $plat = new PlatsModel();
             if($request->isGet())
             {
-                if($plat->delete($id, $col))
-                {
+                if($plat->delete($id, $col) && ($_SESSION['user_role'] == 'resto')){
                 Application::$app->response->redirect('/Restaurant-add_plats');  
                 }
             }

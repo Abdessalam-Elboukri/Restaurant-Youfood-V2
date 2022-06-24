@@ -18,10 +18,15 @@ class OrdersController extends Controller
             $order->loadData($request->getBody());
             if ($order->save()) {
                 Application::$app->response->redirect('/vos-plats');
-            }
+                return;
+            }  
+        } 
+        if($request->isGet() && !empty($_SESSION['data']))
+        {
+            $this->setLayout('menu');
+            return $this->render('plats-menu');   
         }
-        $this->setLayout('menu');
-        return $this->render('plats-menu');
+        Application::$app->response->redirect('/search-menu');
     }
 
     public function getCommands(Request $request)
@@ -75,10 +80,15 @@ class OrdersController extends Controller
 
         if($request->isGet())
         {
-            $this->setLayout('main_resto');
-            return $this->render('Dashboard');
+            if ($_SESSION['user_role'] == 'resto'){
+                $this->setLayout('main_resto');
+             return $this->render('Dashboard');
+            }else{
+                Application::$app->response->redirect('/');
+            }
         }
     }
 
 
 }
+            
