@@ -8,6 +8,8 @@ use app\core\Request;
 use app\models\MenuModel;
 use app\models\OrderedplatModel;
 use app\models\PlatsModel;
+use PDO;
+use PDOException;
 
 // class PlatController extends Controller
 // {
@@ -16,7 +18,8 @@ use app\models\PlatsModel;
 
 class MenuController extends Controller
 {
-    public function MenuList(Request $request ){
+    public function MenuList(Request $request )
+    {
         
      $data=[];
      
@@ -28,15 +31,16 @@ class MenuController extends Controller
             $plats_menu->getMyCommands('commands', $_POST['menu_date'],$_SESSION['user_id']) ;
             $plats_menu->loadData($plats_menu->dataList);
             
-            if(isset($plats_menu->dataList)){
+            if(!empty($plats_menu->dataList)){
                 $_SESSION['msg'] = $_POST['menu_date'];
                 $this->setLayout('menu');
                 return $this->render('menu-search');
                 
             }
 
-            $plats_menu->GetMenu('disponible_at',$_POST['menu_date']); 
-            // var_dump($plats_menu->dataList); exit;
+            $plats_menu->Get('disponible_at',$_POST['menu_date']); 
+            $plats_menu->loadData($plats_menu->dataList);
+            // $data = $plats_menu->dataList
             $_SESSION['data'] = $plats_menu->dataList;
             Application::$app->response->redirect('/plats-menu');
         }
@@ -48,6 +52,47 @@ class MenuController extends Controller
             Application::$app->response->redirect('/not_found');
         }
         }
+
+        public function addMenu(Request $request)
+        {
+            $menu = new MenuModel();
+
+            if($request->isPost()){
+                $menu->loadData($request->getBody());
+                
+                try
+                {   $menu->save();
+                    Application::$app->response->redirect('/Restaurant_menus');
+                }
+                catch(PDOException $e)
+                {
+                    $_SESSION['errorMenu']= 'La date que vous avez selectionez est déjà rempli';
+                    
+                    Application::$app->response->redirect('/Restaurant-add_menus');
+                    
+                }
+            }
+    
+        }
+
+        public function deletePlat(Request $request)
+        {
+            $id = $_GET['id'] ;
+            $col= 'id_menu';
+            $menu = new MenuModel();
+                if($request->isGet())
+                {
+                    if($menu->deleteMenu($id, $col))
+                    {
+                    Application::$app->response->redirect('/Restaurant_menus');  
+                    }
+                }
+        }
+
+
+
+        
+        
         
 
 }

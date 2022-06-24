@@ -81,8 +81,7 @@ abstract class DbModel extends Model
         return true;
     }
 
-
-    public function select(int $id, string $col)
+    public function select($id, string $col)
     {
         $tableName = $this->tableName();
         $statement = self::prepare("SELECT * FROM $tableName where $col = $id");
@@ -92,10 +91,15 @@ abstract class DbModel extends Model
     }
 
 
-    public function GetMenu(String $col,String $value){
+    public function Get(String $col,String $value,$attributes=[]){
 
         $tableName = $this->tableName();
-        $statement = self::prepare("SELECT * FROM $tableName  WHERE $col =  ?");
+        if(empty($attributes)){
+            $attr='*';
+        }else{
+            $attr=implode(',', $attributes);
+        }
+        $statement = self::prepare("SELECT $attr FROM $tableName  WHERE $col =  ?");
         $statement ->bindParam(1, $value, PDO::PARAM_STR);
         $statement->execute();
         $this->dataList = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -149,16 +153,17 @@ abstract class DbModel extends Model
         return $statement->fetch();
     }
 
-    public function selectIn(string $values)
-    {
-        $tableName = $this->tableName();
-        $statement = self::prepare("SELECT nom_plat, img_plat FROM $tableName where nom_plat IN ($values)");
-        $statement->execute();
-        return $this->imgs = $statement->fetchAll(PDO::FETCH_ASSOC);
-        // return true;
-    }
 
-    public function CheckRole(string $role){
-        $_SESSION['user_role'] == $role;
-    }
+    // public function countGroup(Type $var = null)
+    // {
+    //     $tableName = $this->tableName();
+    //     $statement= self::prepare("SELECT COUNT(*) as number  FROM $tableName GROUP BY ");
+    // }
+
+    // public function setProperties(array $properties)
+    // {
+    //     foreach ($properties as $key => $value) {
+    //         $this->{$key} = $value;
+    //     }
+    // }
 }

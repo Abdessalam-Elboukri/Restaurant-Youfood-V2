@@ -57,8 +57,8 @@ class User extends DbModel
     }
 
 
-    public function CheckRole(string $role){
-        return parent ::CheckRole($role);
-    }
+    // public function CheckRole(string $role){
+    //     return parent ::CheckRole($role);
+    // }
 }
 

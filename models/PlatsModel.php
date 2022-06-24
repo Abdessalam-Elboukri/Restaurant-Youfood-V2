@@ -64,17 +64,22 @@ class PlatsModel extends DbModel
         return parent::updatePlat($id, $col);
     }
 
-    public function select(int $id, string $col)
+    public function select( $id, string $col)
     {
         return parent::select($id, $col);
     }
-    
-    public function selectIn(string $values)
-    {
-        return parent::selectIn($values);
-    }
 
-    public function CheckRole(string $role){
-        return parent ::CheckRole($role);
+    public function Get(string $col, string $value, $attributes=[])
+    {
+        return parent::Get($col, $value, $attributes);
     }
+    
+    // public function selectIn(string $values)
+    // {
+    //     return parent::selectIn($values);
+    // }
+
+    // public function CheckRole(string $role){
+    //     return parent ::CheckRole($role);
+    // }
 }
