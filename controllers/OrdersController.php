@@ -29,18 +29,36 @@ class OrdersController extends Controller
         Application::$app->response->redirect('/search-menu');
     }
 
-    public function getCommands(Request $request)
-    {
+    // public function getCommands(Request $request)
+    // {
+    //     $command = new OrdersModel();
+    //     if ($request->isPost()) {
+    //         $command->loadData($request->getBody());
+    //         $command->getMyCommands('commands', $_POST['date_c'], $_SESSION['user_id']);
+    //         $command->loadData($command->dataList);
+    //         // var_dump($command->dataList);
+    //         // $_SESSION['command'] = $command->dataList;
+    //         $params = [
+    //             'data1' => $command->dataList
+    //         ];
+    //         var_dump($command);exit;
+    //         $this->setLayout('auth');
+    //         return $this->render('vos-plats', $params);
+    //     }
+    // }
+
+    public function getCommands(Request $request){
         $command = new OrdersModel();
-        if ($request->isPost()) {
+        if($request ->isPost())
+        {
             $command->loadData($request->getBody());
-            $command->getMyCommands('commands', $_POST['date_c'], $_SESSION['user_id']);
+            $command ->getMyCommands('commands', $_POST['date_c'],$_SESSION['user_id'] );
             $command->loadData($command->dataList);
-            var_dump($command->dataList);
-            $_SESSION['command'] = $command->dataList;
+            // $_SESSION['command'] = $command->dataList ;
             $params = [
                 'data1' => $command->dataList
-            ];
+            ]; 
+            $this->setLayout('menu');
             return $this->render('vos-plats', $params);
         }
     }

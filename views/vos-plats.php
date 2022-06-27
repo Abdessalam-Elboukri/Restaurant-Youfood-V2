@@ -72,20 +72,12 @@
                         </div>
                     </div>
                     <?php }else{?>
-                       <h3>No commands for that day</h3> 
+                       <h3>Vous n'avez aucune commande</h3> 
                        <?php }?>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="bg-black text-white p-3 d-flex justify-content-between align-items-center flex-wrap">
-        <p class="small-text m-0">
-            © 2022 YouFood Technologies Inc.
-        </p>
-        <div>
-            <a href="" class="text-white small-text btn p-0 border-0 ">Politique de confidentialité</a>
-            <a href="" class="text-white small-text btn p-0 border-0"> | Conditions d'utilisation</a>
-        </div>
-    </footer>
+    
 </main>

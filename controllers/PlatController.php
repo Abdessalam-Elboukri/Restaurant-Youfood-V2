@@ -65,10 +65,11 @@ class PlatController extends Controller
 
     public function updatePlat(Request $request)
     {
-        $id = $_GET['id'] ;
-        $col= 'id_plat';
+        
         $plat = new PlatsModel();
-        if($request->isGet()){
+        if(($request->isGet()) && ($_SESSION['user_role'] == 'resto')){
+            $id = $_GET['id'] ;
+            $col= 'id_plat';
             if($plat->select($id, $col)){        
                 $plat->loadData($plat->dataList);
                 if($plat->dataList)
@@ -85,6 +86,9 @@ class PlatController extends Controller
             Application::$app->response->redirect('/Restaurant-add_plats');
 
             
+        }
+        else{
+            Application::$app->response->redirect('/');
         }
 
         if($request->isPost()){

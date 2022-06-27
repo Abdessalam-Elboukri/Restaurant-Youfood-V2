@@ -13,7 +13,7 @@ class PlatsModel extends DbModel
     public $id_plat;
     public string $nom_plat = '';
     public string $desc_plat = '';
-    public string $img_plat =  '';
+    // public string $img_plat =  '';
     public string $cat_plat = '';
     public string $date_ajout = '';
 
@@ -29,14 +29,14 @@ class PlatsModel extends DbModel
             'id_plat' => [self::RULE_REQUIRED],
             'nom_plat' => [self::RULE_REQUIRED],
             'desc_plat' => [self::RULE_REQUIRED],
-            'img_plat' => [self::RULE_REQUIRED],
+            // 'img_plat' => [self::RULE_REQUIRED],
             'cat_plat' =>[self::RULE_REQUIRED]
         ];
     }
 
     public function attributes(): array
     {
-        return ['id_plat','nom_plat', 'desc_plat', 'img_plat','cat_plat'];
+        return ['id_plat','nom_plat', 'desc_plat','cat_plat'];
     }
 
 

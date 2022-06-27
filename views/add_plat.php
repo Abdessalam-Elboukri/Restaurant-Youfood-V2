@@ -56,10 +56,10 @@
                 </div>
                 <div class="modal-body">
                     <form method="post" enctype="multipart/form-data">
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="plat-image" class="col-form-label">Image du plat</label>
-                            <input type="file" class="form-control" name="img_plat" id="plat-image">
-                        </div>
+                            <input type="file" hidden value="pic.png" class="form-control" name="img_plat" id="plat-image">
+                        </div> -->
                         <div class="mb-3">
                             <label for="plat-name" class="col-form-label">Nom du plat</label>
                             <input type="text" class="form-control" name="nom_plat" id="plat-name">

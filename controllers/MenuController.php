@@ -11,10 +11,7 @@ use app\models\PlatsModel;
 use PDO;
 use PDOException;
 
-// class PlatController extends Controller
-// {
-    
-// }
+
 
 class MenuController extends Controller
 {
@@ -49,7 +46,7 @@ class MenuController extends Controller
         $this->setLayout('menu');
             return $this->render('menu-search');
         }else{
-            Application::$app->response->redirect('/not_found');
+            Application::$app->response->redirect('/Restaurant-Dashboard');
         }
         }
 
@@ -90,7 +87,28 @@ class MenuController extends Controller
         }
 
 
+        public function menus(Request $request)
+        {
+            if( ($request->isGet()) && ($_SESSION['user_role'] == 'resto')){
+               
+            
+            $menu = new MenuModel();
+           
 
+                $menu->loadData($request->getBody());
+                if($menu->selectAll()){
+                    $this->setLayout('main_resto');
+                    return $this->render('menu', 
+                    [
+                        'menus' => $menu->dataList
+                    ]);
+                }
+            }
+            else{
+            Application::$app->response->redirect('/');  
+        }
+        }
+        
         
         
         

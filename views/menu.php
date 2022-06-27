@@ -36,7 +36,9 @@
                 </thead>
 
                 <tbody>
-                    <?php foreach ($menus as $menus) : ?>
+                    <?php 
+                    
+                    foreach ($menus as $menus) : ?>
                         <tr>
                             <td><?= $menus->entre1 ?></td>
                             <td><?= $menus->entre2 ?></td>

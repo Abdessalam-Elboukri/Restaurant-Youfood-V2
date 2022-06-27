@@ -22,7 +22,6 @@ class MenuModel extends DbModel
     public string $created_at = '';
 
     public string $listPlats = '';
-
     public array $imgs = [];
 
     public function tableName(): string
@@ -51,10 +50,11 @@ class MenuModel extends DbModel
 
 
     
-  public function Get(String $col, String $value,$attributes=[] ){
-    return parent::Get($col, $value,$attributes);
+    public function Get(String $col, String $value,$attributes=[] )
+    {
+        return parent::Get($col, $value,$attributes);
 
-  }
+    }
   
 
     public function select( $id, string $col)

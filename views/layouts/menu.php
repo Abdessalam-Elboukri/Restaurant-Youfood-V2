@@ -35,7 +35,7 @@
                         <div class="nav-item dropdown ms-lg-4">
                             <a class="small-text" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <span class="circle-ntf"></span>
-                                <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative" width="40px">
+                                <img src="images/avatar1.jpg" alt="" class="rounded-circle position-relative me-2" width="40px">
                                 <?php echo $_SESSION["user_fname"] . ' ' .  $_SESSION["user_lname"] ?? ''; ?>
                             </a>
                             <ul class="dropdown-menu shadow down-menu bg-light border-0 pb-0" aria-labelledby="navbarDropdownMenuLink" style="min-width:3rem">
@@ -64,9 +64,7 @@
             </div>
         </nav><?php } ?>
     <main class="plat-semaine-content">
-        <div class="bg-banner d-flex justify-content-center align-items-center z-index-2">
-            <h1 class="text-green fw-bold font_dancing">Plats de Semaine</h1>
-        </div>
+        
 
         <div class="container-fluid p-0 m-0">
             <div class="d-flex flex-nowrap">

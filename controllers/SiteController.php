@@ -16,6 +16,7 @@ class SiteController extends Controller
     public function YourPlats()
     {
         if( $_SESSION['user_role'] == 'student'){
+            $this->setLayout('menu');
         return $this->render('vos-plats');
         }else{
             Application::$app->response->redirect('/not_found');  

@@ -31,11 +31,11 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
                aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end bg-dark pb-0" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item text-white" href="#!">Settings</a></li>
-                <li><a class="dropdown-item text-white" href="#!">Activity Log</a></li>
-                <li>
+                <!-- <li><a class="dropdown-item text-white" href="#!">Settings</a></li>
+                <li><a class="dropdown-item text-white" href="#!">Activity Log</a></li> -->
+                <!-- <li>
                     <hr class="dropdown-divide btn-outliner-dark" />
-                </li>
+                </li> -->
                 <li> <a href="logout" class=" text-white dropdown-item"><i class="fas fa-sign-out-alt"></i> Se
                         déconnecter</a></li>
 
@@ -56,12 +56,12 @@
                         </div>
                     </div>
                     <ul class="list-unstyled ms-4">
-                        <li>
+                        <!-- <li>
                             <a class="nav-link text-gris nav_item small  fw-normal" href="charts.html">
                                 <div class="sb-nav-link-icon pe-3"><i class="fa-solid fa-house "></i></div>
                                 Acceuil
                             </a>
-                        </li>
+                        </li> -->
                         <li>
                             <a class="nav-link text-gris nav_item small  fw-normal" href="/Restaurant-Dashboard">
                                 <div class="sb-nav-link-icon pe-3"><i class="fa-solid fa-star"></i></i></div>
@@ -74,20 +74,20 @@
                                 Menu
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="nav-link text-gris nav_item small  fw-normal" href="charts.html">
                                 <div class="sb-nav-link-icon pe-3"><i class="fas fa-bags-shopping"></i></div>
                                 Commandes
                             </a>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <a class="nav-link text-gris nav_item small fw-normal" href="charts.html">
                                 <div class="sb-nav-link-icon pe-3"><i class="fa-solid fa-star"></i></div>
                                 Feedbacks
                             </a>
-                        </li>
+                        </li> -->
                         <li>
-                            <a class="nav-link text-gris nav_item small  fw-normal" href="charts.html">
+                            <a class="nav-link text-gris nav_item small  fw-normal" href="">
                                 <div class="sb-nav-link-icon pe-3"><i class="fas fa-user"></i></div>
                                 Profile
                             </a>

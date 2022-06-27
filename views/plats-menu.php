@@ -1,4 +1,6 @@
-
+<div class="bg-banner d-flex justify-content-center align-items-center z-index-2">
+            <h1 class="text-green fw-bold font_dancing">Plats de Semaine</h1>
+        </div>
     <div class="p-3 mt-4">
         <a href="search-menu " class="button text-white">back to search</a>
     <h5 class="mt-4">you are seen the menu for : </h5>
